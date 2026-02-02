@@ -1,0 +1,45 @@
+{
+    "artist": [
+    
+      {
+        "id": 1,
+        "title": "Shaky",
+        "slug": "guitar-fundamentals",
+        "description": " A bold, danceable vibe that pushes Marathi music into exciting new territory. ",
+        "price": 99.99,
+        "instructor": "Sanju Rathod",
+        "isFeatured": true,
+        "image": "/data/download1.jpg" 
+      },
+      {
+        "id": 2,
+        "title": "Asal Kolaar ",
+        "slug": "piano-for-beginners",
+        "description": "The track flexes confidence, hustle, and street pride—served with Asal Kolaar’s raw Tamil slang, punchy delivery, and a beat that hits hard from the first bar.",
+        "price": 109.99,
+        "instructor": "Champagini",
+        "isFeatured": true,
+        "image": "/data/download.jpg" 
+      },
+      {
+        "id": 3,
+        "title": "Adayein Teri ",
+        "slug": "advanced-vocal-techniques",
+        "description": "Adayein Teri set to a shimmering disco rhythm, this hypnotic track weaves a poetic tale of desire, mystery, and unspoken emotion.",
+        "price": 119.99,
+        "instructor": "Neeti Mohan",
+        "isFeatured": true,
+        "image": "/data/download2.jpg" 
+      },
+      {
+        "id": 4,
+        "title": "Not Guilty",
+        "slug": "drumming-mastery",
+        "description": "The track reflects real-life struggles, false blame, loyalty, and inner strength. With powerful Haryanvi lyrics.",
+        "price": 129.99,
+        "instructor": "Dhanda Nyoliwala",
+        "isFeatured": false,
+        "image": "/data/download3.jpg"
+      }  
+   ]
+}
