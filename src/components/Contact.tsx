@@ -47,7 +47,7 @@ function Contact() {
             </li>
           </ul>
         </div>
-        <div max-w-7xl>
+        <div className="max-w-7xl">
           <h1 className="font-semibold text-xl ">Follow Us</h1>
           <ul className="mt-3 space-y-2 text-gray-400">
             <li>
@@ -77,7 +77,7 @@ function Contact() {
             </li>
           </ul>
         </div>
-        <div max-w-7xl>
+        <div className="max-w-7xl">
           <h1 className="font-semibold text-xl"> Contact Us</h1>
           <ul className="mt-3 space-y-2 text-gray-400">
             <li>New Delhi, India</li>
