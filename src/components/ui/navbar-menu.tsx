@@ -24,8 +24,9 @@ export const MenuItem = ({
   item: string;
   children?: React.ReactNode;
 }) => {
+  const handleMouseEnter = React.useCallback(() => setActive(item), [setActive, item]);
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative ">
+    <div onMouseEnter={handleMouseEnter} className="relative ">
       <motion.p
         transition={{ duration: 0.3 }}
         className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
@@ -67,9 +68,13 @@ export const Menu = ({
   setActive: (item: string | null) => void;
   children: React.ReactNode;
 }) => {
+  const handleMouseLeave = React.useCallback(() => {
+    setActive(null);
+  }, [setActive]);
+
   return (
     <nav
-      onMouseLeave={() => setActive(null)} // resets the state
+      onMouseLeave={handleMouseLeave} // resets the state
       className="relative rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
     >
       {children}

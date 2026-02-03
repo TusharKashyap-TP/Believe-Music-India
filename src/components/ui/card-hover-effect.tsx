@@ -23,13 +23,23 @@ export const HoverEffect = ({
         className
       )}
     >
+      const handleMouseEnter = React.useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+        const idxAttr = e.currentTarget.dataset.idx;
+        setHoveredIndex(idxAttr ? parseInt(idxAttr, 10) : null);
+      }, [setHoveredIndex]);
+
+      const handleMouseLeave = React.useCallback(() => {
+        setHoveredIndex(null);
+      }, [setHoveredIndex]);
+
       {items.map((item, idx) => (
         <a
           href={item?.link}
           key={item?.link}
           className="relative group  block p-2 h-full w-full"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
+          data-idx={idx}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
