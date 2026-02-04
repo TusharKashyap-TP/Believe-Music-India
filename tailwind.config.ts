@@ -1,11 +1,15 @@
-export default {
-  darkMode: "class", // 👈 REQUIRED
+import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
+
+const config: Config = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
-  require("tw-animate-css"),
+  plugins: [animate],
 };
+
+export default config;
+

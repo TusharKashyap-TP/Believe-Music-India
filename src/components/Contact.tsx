@@ -7,7 +7,7 @@ function Contact() {
   return (
     <div className=" bg-gray-950 mt-10 ">
       <div className="grid grid-cols-1 md:grid-cols-4 mb-15 px-30  ">
-<div className="max-w-7xl">
+<div className="max-w-7xl mx-auto">
           <h1 className="font-semibold text-xl">Company</h1>
           <ul className="space-y-2 text-gray-400 mt-3">
             <li>
