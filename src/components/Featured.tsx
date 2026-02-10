@@ -43,7 +43,7 @@ const Featured = () => {
                     {course.description}
                   </p>
                   <Link
-                    href={`/courses `}
+                    href="/courses "
                     className="border mt-3 rounded-2xl w-30 bg-blue-700 hover:bg-gray-800 transition duration-200"
                   >
                     Know More
