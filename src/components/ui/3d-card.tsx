@@ -58,6 +58,7 @@ export const CardContainer = ({
       >
         <div
           ref={containerRef}
+          role="button"
           onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
