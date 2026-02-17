@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import {
   motion,
   useTransform,
@@ -46,12 +46,22 @@ export const AnimatedTooltip = ({
 
   return (
     <>
+      const handleMouseEnter = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+        const id = Number(event.currentTarget.dataset.id);
+        setHoveredIndex(id);
+      }, [setHoveredIndex]);
+
+      const handleMouseLeave = useCallback(() => {
+        setHoveredIndex(null);
+      }, [setHoveredIndex]);
+
       {items.map((item, idx) => (
         <div
           className="group relative -mr-4"
           key={item.name}
-          onMouseEnter={() => setHoveredIndex(item.id)}
-          onMouseLeave={() => setHoveredIndex(null)}
+          data-id={item.id}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <AnimatePresence>
             {hoveredIndex === item.id && (
