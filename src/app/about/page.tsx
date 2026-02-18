@@ -42,7 +42,7 @@ function Page() {
             heritage, and modern expression. We bring together dedicated mentors
             and passionate learners to explore music through structured practice,
             performance, and experimentation. Rooted in timeless traditions and
-            shaped by contemporary sounds — it's a journey of consistency,
+            shaped by contemporary sounds — it&apos;s a journey of consistency,
             creativity, and self-discovery.
           </p>
         </div>
@@ -86,7 +86,7 @@ function Page() {
 
           <div className="space-y-8 text-neutral-300 text-lg font-light leading-relaxed border-l border-neutral-800 pl-12">
             <p>
-              Believe has been active in India's music scene since{" "}
+              Believe has been active in India&apos;s music scene since{" "}
               <span className="text-white font-medium">2013</span>, a vast and
               vibrant market with a rich variety of genres, languages and artists.
               We have traditionally offered a gamut of services including sales
@@ -94,7 +94,7 @@ function Page() {
               audio and video streaming and entertainment platforms.
             </p>
             <p>
-              Since 2019 we've expanded our services and team:{" "}
+              Since 2019 we&apos;ve expanded our services and team:{" "}
               <span className="text-white font-medium">230+ music industry</span>{" "}
               experts working out of offices in Mumbai, Mohali and Chennai.
               Together they provide a range of artist services, digital content
@@ -147,11 +147,7 @@ function Page() {
               <CardContainer key={index} className="inter-var w-full">
                 <CardBody
                   className="relative group/card rounded-2xl p-6 border flex flex-col w-full overflow-hidden"
-                  style={{
-                    background: "linear-gradient(145deg, #111111, #0d0d0d)",
-                    borderColor: "#1f1f1f",
-                    height: "26rem",       /* ← every card same height */
-                  }}
+                 
                 >
                   {/* Gold top accent */}
                   <div
