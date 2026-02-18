@@ -145,78 +145,83 @@ function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {courseData?.artist?.map((artist, index) => (
               <CardContainer key={index} className="inter-var w-full">
-                <CardBody
-                  className="relative group/card rounded-2xl p-6 border flex flex-col w-full overflow-hidden"
-                 
-                >
-                  {/* Gold top accent */}
+                <CardBody className="relative group/card w-full">
+                  {/* Styled wrapper — CardBody only accepts className, so styles go here */}
                   <div
-                    className="absolute top-0 left-8 right-8 h-[1px]"
+                    className="relative flex flex-col w-full h-[26rem] rounded-2xl border p-6 overflow-hidden"
                     style={{
-                      background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
-                    }}
-                  />
-
-                  {/* Title */}
-                  <CardItem
-                    translateZ="50"
-                    className="text-xl font-bold text-white mb-1 shrink-0"
-                    style={{ fontFamily: "'Georgia', serif" }}
-                  >
-                    {artist.title}
-                  </CardItem>
-
-                  {/* Description — clamped to 2 lines */}
-                  <CardItem
-                    as="p"
-                    translateZ="60"
-                    className="text-neutral-400 text-sm leading-relaxed mt-2 mb-4 shrink-0"
-                    style={{
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical" as const,
-                      overflow: "hidden",
+                      background: "linear-gradient(145deg, #111111, #0d0d0d)",
+                      borderColor: "#1f1f1f",
                     }}
                   >
-                    {artist.description}
-                  </CardItem>
+                    {/* Gold top accent */}
+                    <div
+                      className="absolute top-0 left-8 right-8 h-[1px]"
+                      style={{
+                        background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
+                      }}
+                    />
 
-                  {/* Image — fills remaining space */}
-                  <CardItem translateZ="100" className="w-full flex-1 min-h-0">
-                    <div className="relative w-full h-full overflow-hidden rounded-xl">
-                      <Image
-                        src={artist.image}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover/card:scale-105"
-                        alt={artist.title}
-                      />
-                      {/* subtle overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    {/* Title */}
+                    <CardItem
+                      translateZ="50"
+                      className="text-xl font-bold text-white mb-1 shrink-0"
+                      style={{ fontFamily: "'Georgia', serif" }}
+                    >
+                      {artist.title}
+                    </CardItem>
+
+                    {/* Description — clamped to 2 lines */}
+                    <CardItem
+                      as="p"
+                      translateZ="60"
+                      className="text-neutral-400 text-sm leading-relaxed mt-2 mb-4 shrink-0"
+                      style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical" as const,
+                        overflow: "hidden",
+                      }}
+                    >
+                      {artist.description}
+                    </CardItem>
+
+                    {/* Image — fills remaining space */}
+                    <CardItem translateZ="100" className="w-full flex-1 min-h-0">
+                      <div className="relative w-full h-full overflow-hidden rounded-xl">
+                        <Image
+                          src={artist.image}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover/card:scale-105"
+                          alt={artist.title}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                      </div>
+                    </CardItem>
+
+                    {/* Actions — always at bottom */}
+                    <div
+                      className="flex justify-between items-center mt-4 pt-4 border-t shrink-0"
+                      style={{ borderColor: "#1f1f1f" }}
+                    >
+                      <CardItem
+                        translateZ={20}
+                        as="button"
+                        className="text-xs font-medium tracking-wide transition-colors hover:text-white"
+                        style={{ color: "#C9A84C" }}
+                      >
+                        Learn more →
+                      </CardItem>
+                      <CardItem
+                        translateZ={20}
+                        as="button"
+                        className="relative overflow-hidden group/btn px-4 py-2 text-xs font-bold text-black transition-opacity hover:opacity-90"
+                        style={{ background: "#C9A84C" }}
+                      >
+                        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover/btn:translate-x-full" />
+                        <span className="relative">Connect</span>
+                      </CardItem>
                     </div>
-                  </CardItem>
-
-                  {/* Actions — always at bottom */}
-                  <div
-                    className="flex justify-between items-center mt-4 pt-4 border-t shrink-0"
-                    style={{ borderColor: "#1f1f1f" }}
-                  >
-                    <CardItem
-                      translateZ={20}
-                      as="button"
-                      className="text-xs font-medium tracking-wide transition-colors hover:text-white"
-                      style={{ color: "#C9A84C" }}
-                    >
-                      Learn more →
-                    </CardItem>
-                    <CardItem
-                      translateZ={20}
-                      as="button"
-                      className="relative overflow-hidden group/btn px-4 py-2 text-xs font-bold text-black transition-opacity hover:opacity-90"
-                      style={{ background: "#C9A84C" }}
-                    >
-                      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover/btn:translate-x-full" />
-                      <span className="relative">Connect</span>
-                    </CardItem>
                   </div>
                 </CardBody>
               </CardContainer>
