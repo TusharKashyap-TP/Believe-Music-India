@@ -1,9 +1,8 @@
 "use client";
-import { cn } from "@/lib/utils";
+import React from "react";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
-
-import React, { useEffect, useState } from "react";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
+
 const musicSchoolTestimonials = [
   {
     quote:
@@ -39,40 +38,91 @@ const musicSchoolTestimonials = [
 
 function Cards() {
   return (
-    <div className="h-['40rem'] w-full dark:bg-black dark:bg-grid-white/[0.2] relative flex flex-col items-center justify-center overflow-hidden">
-      <div >
-        <h2 className="text-3xl font-bold text-center mb-8  mt-30 z-10">
-          {" "}
-          Hear our Harmony: Voices of success
-        </h2>
-        <div className="flex justify-center w-full overflow-hidden px-4 sm:px-6 lg:px-8">
-          <div className="w-full max-w-6xl">
-            {" "}
-            <InfiniteMovingCards
-              items={musicSchoolTestimonials}
-              direction="right"
-              speed="slow"
-            />
-            
-          </div>
-        </div>
-      </div>
+    <section className="relative w-full bg-[#080808] overflow-hidden py-24">
+
+      {/* Top divider line */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, #C9A84C, transparent)",
+        }}
+      />
+
+      {/* Dotted animated background */}
       <DottedGlowBackground
-        className="pointer-events-none mask-radial-to-90% mask-radial-at-center"
+        className="absolute inset-0 pointer-events-none mask-radial-to-90% mask-radial-at-center"
         opacity={1}
         gap={10}
         radius={1.6}
         colorLightVar="--color-neutral-500"
         glowColorLightVar="--color-neutral-600"
-        colorDarkVar="--color-neutral-500"
+        colorDarkVar="--color-neutral-700"
         glowColorDarkVar="--color-sky-800"
         backgroundOpacity={0}
         speedMin={0.3}
         speedMax={1.6}
         speedScale={1}
       />
-      
-    </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center">
+
+        {/* Eyebrow */}
+        <span
+          className="uppercase tracking-[0.35em] text-xs font-semibold mb-4"
+          style={{ color: "#C9A84C" }}
+        >
+          Testimonials
+        </span>
+
+        {/* Heading */}
+        <h2
+          className="text-4xl md:text-5xl font-black text-center mb-4 px-4"
+          style={{
+            fontFamily: "'Georgia', serif",
+            background: "linear-gradient(135deg, #fff 30%, #C9A84C 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          Hear Our Harmony
+        </h2>
+
+        {/* Sub-heading */}
+        <p className="text-neutral-400 text-base mb-12 tracking-wide">
+          Voices of success from our students
+        </p>
+
+        {/* Gold rule */}
+        <div
+          className="w-16 h-[2px] mb-12"
+          style={{ background: "#C9A84C" }}
+        />
+
+        {/* Infinite moving cards */}
+        <div className="flex justify-center w-full overflow-hidden px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-6xl">
+            <InfiniteMovingCards
+              items={musicSchoolTestimonials}
+              direction="right"
+              speed="slow"
+            />
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom divider line */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, #C9A84C, transparent)",
+        }}
+      />
+
+    </section>
   );
 }
 

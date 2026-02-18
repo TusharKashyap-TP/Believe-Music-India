@@ -39,27 +39,94 @@ const people = [
 
 function Us() {
   return (
-    <LampContainer>
-      <motion.h1
-        className="text-center text-6xl font-bold mb-10"
-        initial={{ opacity: 0.5, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
+    <div className="relative w-full bg-[#080808] overflow-hidden">
+
+      {/* Top gold divider */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px] z-10"
+        style={{
+          background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
         }}
-      >
-        Meet Our Indian Artists
-      </motion.h1>
-      <h4 className="font-semibold text-2xl">Discover the talented professionals who will guide your musical journey
+      />
 
-</h4>
+      <LampContainer>
+        {/* Eyebrow */}
+        <motion.span
+          className="block uppercase tracking-[0.35em] text-xs font-semibold mb-5 text-center"
+          style={{ color: "#C9A84C" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6, ease: "easeInOut" }}
+        >
+          Our Instructors
+        </motion.span>
 
-      <div className="flex flex-row items-center justify-center  gap-3 mt-4 w-full">
-        <AnimatedTooltip items={people} />
-      </div>
-    </LampContainer>
+        {/* Main heading */}
+        <motion.h1
+          className="text-center text-5xl md:text-6xl font-black mb-6"
+          style={{
+            fontFamily: "'Georgia', serif",
+            background: "linear-gradient(135deg, #ffffff 30%, #C9A84C 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
+        >
+          Meet Our Indian Artists
+        </motion.h1>
+
+        {/* Gold rule */}
+        <motion.div
+          className="w-16 h-[2px] mx-auto mb-6"
+          style={{ background: "#C9A84C" }}
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        />
+
+        {/* Subheading */}
+        <motion.p
+          className="text-neutral-400 text-base text-center max-w-lg mx-auto mb-10 font-light leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6, ease: "easeInOut" }}
+        >
+          Discover the talented professionals who will guide your musical journey
+        </motion.p>
+
+        {/* Tooltip avatars */}
+        <motion.div
+          className="flex flex-row items-center justify-center gap-3 w-full"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.6, ease: "easeInOut" }}
+        >
+          <AnimatedTooltip items={people} />
+        </motion.div>
+
+        {/* Bottom diamond divider */}
+        <div className="flex items-center gap-4 max-w-xs mx-auto mt-14">
+          <div className="h-[1px] flex-1 bg-neutral-800" />
+          <div
+            className="w-2 h-2 rotate-45 border"
+            style={{ borderColor: "#C9A84C" }}
+          />
+          <div className="h-[1px] flex-1 bg-neutral-800" />
+        </div>
+
+      </LampContainer>
+
+      {/* Bottom gold divider */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px] z-10"
+        style={{
+          background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
+        }}
+      />
+
+    </div>
   );
 }
 

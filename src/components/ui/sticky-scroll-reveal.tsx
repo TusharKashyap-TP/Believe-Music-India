@@ -18,8 +18,6 @@ export const StickyScroll = ({
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<any>(null);
   const { scrollYProgress } = useScroll({
-    // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
-    // target: ref
     container: ref,
     offset: ["start start", "end start"],
   });
@@ -40,15 +38,18 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
+  // Gold-toned background colors cycling through dark shades
   const backgroundColors = [
-    "#0f172a", // slate-900
-    "#000000", // black
-    "#171717", // neutral-900
+    "#080808",
+    "#0d0b07",
+    "#0f0d09",
   ];
+
+  // Gold-toned gradients for the right panel
   const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)", // cyan-500 to emerald-500
-    "linear-gradient(to bottom right, #ec4899, #6366f1)", // pink-500 to indigo-500
-    "linear-gradient(to bottom right, #f97316, #eab308)", // orange-500 to yellow-500
+    "linear-gradient(to bottom right, #C9A84C, #7a5f1a)",
+    "linear-gradient(to bottom right, #b8922a, #C9A84C)",
+    "linear-gradient(to bottom right, #8a6420, #d4b96a)",
   ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(
@@ -67,29 +68,47 @@ export const StickyScroll = ({
       className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto rounded-md p-10"
       ref={ref}
     >
-      <div className="div relative flex items-start px-4">
+      {/* Left: scrolling text */}
+      <div className="relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-20">
+
+              {/* Gold number indicator */}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeCard === index ? 1 : 0 }}
+                className="block text-xs uppercase tracking-[0.3em] font-semibold mb-3"
+                style={{ color: "#C9A84C" }}
+              >
+                0{index + 1}
+              </motion.span>
+
               <motion.h2
-                initial={{
-                  opacity: 0,
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeCard === index ? 1 : 0.25 }}
+                className="text-2xl font-black"
+                style={{
+                  fontFamily: "'Georgia', serif",
+                  color: activeCard === index ? "#ffffff" : "#6b6b6b",
                 }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-2xl font-bold text-slate-100"
               >
                 {item.title}
               </motion.h2>
+
+              {/* Gold underline on active */}
+              <motion.div
+                animate={{ width: activeCard === index ? "3rem" : "0rem" }}
+                transition={{ duration: 0.3 }}
+                className="h-[2px] mt-3 mb-4"
+                style={{ background: "#C9A84C" }}
+              />
+
               <motion.p
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-kg mt-10 max-w-sm text-slate-300"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeCard === index ? 1 : 0.25 }}
+                className="mt-2 max-w-sm text-sm leading-relaxed"
+                style={{ color: activeCard === index ? "#d4d4d4" : "#555" }}
               >
                 {item.description}
               </motion.p>
@@ -98,14 +117,40 @@ export const StickyScroll = ({
           <div className="h-40" />
         </div>
       </div>
+
+      {/* Right: sticky visual panel */}
       <div
         style={{ background: backgroundGradient }}
         className={cn(
-          "sticky top-10 hidden h-60 w-80 overflow-hidden rounded-md bg-white lg:block",
+          "sticky top-10 hidden h-60 w-80 overflow-hidden rounded-xl lg:block border",
           contentClassName,
         )}
+        // Gold border around the panel
+        // @ts-ignore
+        style={{
+          background: backgroundGradient,
+          borderColor: "rgba(201,168,76,0.3)",
+          boxShadow: "0 0 40px rgba(201,168,76,0.1)",
+        }}
       >
-        {content[activeCard].content ?? null}
+        {/* Decorative inner overlay */}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, rgba(201,168,76,0.3) 0px, transparent 1px, transparent 20px)",
+          }}
+        />
+        {/* Active card number watermark */}
+        <div
+          className="absolute bottom-4 right-4 text-6xl font-black opacity-20 select-none"
+          style={{ fontFamily: "'Georgia', serif", color: "#fff" }}
+        >
+          0{activeCard + 1}
+        </div>
+        <div className="relative z-10 p-4">
+          {content[activeCard].content ?? null}
+        </div>
       </div>
     </motion.div>
   );

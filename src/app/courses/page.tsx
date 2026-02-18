@@ -1,74 +1,353 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import courseData from "@/data/music.json";
-import Contact  from '@/components/Contact'
+import Contact from '@/components/Contact';
 
-
-function Page() {
+/* ─────────────────────────────────────────────────
+   Category filter pill
+───────────────────────────────────────────────── */
+function FilterPill({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
   return (
-    <div className="min-h-screen bg-gray-950 py-12 pt-36">
-      <h1 className="text-lg md:text-7xl text-center font-sans font-bold mb-8 text-white transition-colors  duration-100 hover:text-emerald-400
- underline ">
-        All Courses ({courseData.courses.length}) </h1>
-
-      <div className="flex flex-wrap justify-center">
-        {courseData.courses.map((course, index) => (
-          <CardContainer key={index} className="inter-var m-4">
-            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
-              
-              <CardItem
-                translateZ="50"
-                className="text-xl font-bold text-neutral-600 dark:text-white"
-              >
-                {course.title}
-              </CardItem>
-
-              <CardItem
-                as="p"
-                translateZ="60"
-                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-              >
-                {course.description}
-              </CardItem>
-
-              <CardItem translateZ="100" className="w-full mt-4">
-                <Image
-                  src={course.image}
-                  height={1000}
-                  width={1000}
-                  className="h-60 w-full object-cover rounded-xl  group-hover/card:shadow-xl"
-                  alt={course.title}
-                />
-              </CardItem>
-
-              <div className="flex justify-between items-center mt-20">
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-                >
-                  Try now →
-                </CardItem>
-
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                >
-                  Sign up
-                </CardItem>
-              </div>
-
-            </CardBody>
-          </CardContainer>
-        ))}
-      </div>
-      <Contact/>
-    </div>
+    <button
+      onClick={onClick}
+      className="relative px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] border transition-all duration-300 overflow-hidden group"
+      style={{
+        borderColor: active ? "#C9A84C" : "#1f1f1f",
+        background: active ? "#C9A84C" : "linear-gradient(145deg, #111, #0d0d0d)",
+        color: active ? "#080808" : "#7a7264",
+      }}
+    >
+      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
+      <span className="relative">{label}</span>
+    </button>
   );
 }
 
-export default Page;
+/* ─────────────────────────────────────────────────
+   Course card — fixed 22rem × 30rem uniform size
+───────────────────────────────────────────────── */
+function CourseCard({ course }: { course: (typeof courseData.courses)[0] }) {
+  return (
+    <CardContainer className="inter-var">
+      <CardBody
+        className="relative group/card rounded-2xl border p-6 overflow-hidden flex flex-col"
+        style={{
+          background: "linear-gradient(145deg, #111111, #0d0d0d)",
+          borderColor: "#1f1f1f",
+          width: "22rem",
+          height: "30rem",
+        }}
+      >
+        {/* Gold top accent — matches artist cards */}
+        <div
+          className="absolute top-0 left-8 right-8 h-[1px]"
+          style={{
+            background:
+              "linear-gradient(to right, transparent, #C9A84C, transparent)",
+          }}
+        />
+
+        {/* Instructor badge */}
+        {course.instructor && (
+          <CardItem translateZ="30" className="mb-3">
+            <span
+              className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] font-semibold"
+              style={{ color: "#C9A84C" }}
+            >
+              <span
+                className="w-1 h-1 rounded-full"
+                style={{ background: "#C9A84C" }}
+              />
+              {course.instructor}
+            </span>
+          </CardItem>
+        )}
+
+        {/* Title */}
+        <CardItem
+          translateZ="50"
+          className="text-xl font-black text-white leading-tight mb-2"
+          style={{ fontFamily: "'Georgia', serif" }}
+        >
+          {course.title}
+        </CardItem>
+
+        {/* Description — clamped to 2 lines */}
+        <CardItem
+          as="p"
+          translateZ="60"
+          className="text-neutral-500 text-sm leading-relaxed mt-2 mb-4"
+          style={{
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+          }}
+        >
+          {course.description}
+        </CardItem>
+
+        {/* Image — fixed height */}
+        <CardItem translateZ="100" className="w-full">
+          <div className="relative overflow-hidden rounded-xl">
+            <Image
+              src={course.image}
+              height={600}
+              width={600}
+              className="h-44 w-full object-cover transition-transform duration-700 group-hover/card:scale-105"
+              alt={course.title}
+            />
+            {/* Image overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+            {/* Level badge on image */}
+            {course.level && (
+              <span
+                className="absolute bottom-3 left-3 text-[9px] uppercase tracking-widest font-bold px-2 py-1"
+                style={{ background: "#C9A84C", color: "#080808" }}
+              >
+                {course.level}
+              </span>
+            )}
+          </div>
+        </CardItem>
+
+        {/* Meta row — pushed to bottom */}
+        <div
+          className="flex items-center gap-4 mt-auto pt-4 border-t text-[10px] uppercase tracking-widest text-neutral-600"
+          style={{ borderColor: "#1f1f1f" }}
+        >
+          {course.duration && <span>⏱ {course.duration}</span>}
+          {course.lessons && <span>◈ {course.lessons} lessons</span>}
+          {course.price && (
+            <span className="ml-auto font-bold" style={{ color: "#C9A84C" }}>
+              {course.price}
+            </span>
+          )}
+        </div>
+
+        {/* Actions */}
+        <div className="flex justify-between items-center mt-4">
+          <CardItem
+            translateZ={20}
+            as="button"
+            className="text-xs font-medium tracking-wide transition-colors duration-200 hover:text-white"
+            style={{ color: "#C9A84C" }}
+          >
+            Learn more →
+          </CardItem>
+
+          <CardItem
+            translateZ={20}
+            as="button"
+            className="relative overflow-hidden group/btn px-5 py-2 text-xs font-bold text-black tracking-widest uppercase transition-opacity duration-200 hover:opacity-90"
+            style={{ background: "#C9A84C" }}
+          >
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover/btn:translate-x-full" />
+            <span className="relative">Enroll Now</span>
+          </CardItem>
+        </div>
+      </CardBody>
+    </CardContainer>
+  );
+}
+
+/* ─────────────────────────────────────────────────
+   Main page
+───────────────────────────────────────────────── */
+export default function CoursesPage() {
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  // Auto-generate unique categories from JSON data
+  const categories = [
+    "All",
+    ...Array.from(
+      new Set(
+        courseData.courses
+          .map((c) => c.category)
+          .filter((cat): cat is string => Boolean(cat))
+      )
+    ),
+  ];
+
+  const filtered =
+    activeFilter === "All"
+      ? courseData.courses
+      : courseData.courses.filter((c) =>
+          c.category?.toLowerCase() === activeFilter.toLowerCase()
+        );
+
+  return (
+    <main className="min-h-screen bg-[#080808] text-white overflow-x-hidden">
+
+      {/* ── HERO HEADER ── */}
+      <section className="relative pt-36 pb-24 px-6 flex flex-col items-center justify-center overflow-hidden">
+        <BackgroundBeams className="absolute inset-0 z-0" />
+
+        {/* Vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#080808] z-10 pointer-events-none" />
+
+        {/* Left accent line */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-[3px]"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, #C9A84C 30%, #C9A84C 70%, transparent)",
+          }}
+        />
+
+        <div className="relative z-20 text-center max-w-3xl mx-auto">
+          {/* Eyebrow */}
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#C9A84C]" />
+            <span
+              className="text-[10px] uppercase tracking-[0.35em] font-semibold"
+              style={{ color: "#C9A84C" }}
+            >
+              Our Curriculum
+            </span>
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#C9A84C]" />
+          </div>
+
+          <h1
+            className="text-6xl md:text-8xl font-black leading-none tracking-tight mb-6"
+            style={{
+              fontFamily: "'Georgia', serif",
+              background: "linear-gradient(135deg, #fff 30%, #C9A84C 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            All Courses
+          </h1>
+
+          {/* Decorative rule */}
+          <div
+            className="w-16 h-[2px] mx-auto mb-6"
+            style={{ background: "#C9A84C" }}
+          />
+
+          <p className="text-neutral-400 text-base md:text-lg leading-relaxed font-light">
+            {courseData.courses.length} curated programs built for every stage
+            of your musical journey — from foundations to mastery.
+          </p>
+
+          {/* Scroll hint */}
+          <div className="mt-12 flex flex-col items-center gap-2 opacity-40">
+            <span className="text-[10px] tracking-widest uppercase text-neutral-400">
+              Explore
+            </span>
+            <div className="w-px h-10 bg-gradient-to-b from-neutral-400 to-transparent animate-pulse" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── FILTER BAR ── */}
+      <section className="px-6 pb-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Section divider — mirrors Artists section */}
+          <div className="flex items-center gap-6 mb-10">
+            <div className="h-[1px] flex-1 bg-neutral-800" />
+            <span
+              className="text-[10px] uppercase tracking-[0.3em] font-semibold"
+              style={{ color: "#C9A84C" }}
+            >
+              Filter by Category
+            </span>
+            <div className="h-[1px] flex-1 bg-neutral-800" />
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((cat) => (
+              <FilterPill
+                key={cat}
+                label={cat}
+                active={activeFilter === cat}
+                onClick={() => setActiveFilter(cat)}
+              />
+            ))}
+          </div>
+
+          {/* Live count */}
+          <p className="text-center mt-6 text-xs uppercase tracking-widest text-neutral-600">
+            Showing{" "}
+            <span style={{ color: "#C9A84C" }}>{filtered.length}</span>{" "}
+            {filtered.length === 1 ? "course" : "courses"}
+          </p>
+        </div>
+      </section>
+
+      {/* ── STATS ROW — mirrors About page ── */}
+      <section className="px-6 pb-14">
+        <div
+          className="max-w-3xl mx-auto grid grid-cols-3 gap-6 border-y py-8"
+          style={{ borderColor: "#1f1f1f" }}
+        >
+          {[
+            { num: `${courseData.courses.length}+`, label: "Courses" },
+            { num: "12+", label: "Mentors" },
+            { num: "500+", label: "Students" },
+          ].map((s) => (
+            <div key={s.label} className="text-center">
+              <p
+                className="text-3xl font-black"
+                style={{ color: "#C9A84C" }}
+              >
+                {s.num}
+              </p>
+              <p className="text-xs uppercase tracking-widest text-neutral-500 mt-1">
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── COURSE GRID ── */}
+      <section className="px-6 pb-24">
+        <div className="max-w-7xl mx-auto">
+          {filtered.length === 0 ? (
+            <div className="text-center py-24">
+              <p className="text-neutral-600 text-sm uppercase tracking-widest">
+                No courses found in this category.
+              </p>
+            </div>
+          ) : (
+            <div className="flex flex-wrap justify-center gap-2">
+              {filtered.map((course, index) => (
+                <CourseCard key={index} course={course} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── CONTACT ── */}
+      <section className="relative px-6">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, #C9A84C 0px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #C9A84C 0px, transparent 1px, transparent 60px)",
+          }}
+        />
+        <div className="relative z-10">
+          <Contact />
+        </div>
+      </section>
+
+    </main>
+  );
+}

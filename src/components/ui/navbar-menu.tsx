@@ -2,8 +2,6 @@
 import React from "react";
 import { motion } from "motion/react";
 
-
-
 const transition = {
   type: "spring",
   mass: 0.5,
@@ -25,13 +23,17 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative ">
+    <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+        className="cursor-pointer text-sm font-medium tracking-wide transition-colors duration-200"
+        style={{
+          color: active === item ? "#C9A84C" : "#a3a3a3",
+        }}
       >
         {item}
       </motion.p>
+
       {active !== null && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
@@ -42,13 +44,23 @@ export const MenuItem = ({
             <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 transition={transition}
-                layoutId="active" // layoutId ensures smooth animation
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+                layoutId="active"
+                className="backdrop-blur-md rounded-2xl overflow-hidden shadow-xl"
+                style={{
+                  background: "rgba(8,8,8,0.95)",
+                  border: "1px solid rgba(201,168,76,0.2)",
+                  boxShadow: "0 0 30px rgba(201,168,76,0.08)",
+                }}
               >
-                <motion.div
-                  layout // layout ensures smooth animation
-                  className="w-max h-full p-4"
-                >
+                {/* Gold top accent line */}
+                <div
+                  className="w-full h-[1px]"
+                  style={{
+                    background:
+                      "linear-gradient(to right, transparent, #C9A84C, transparent)",
+                  }}
+                />
+                <motion.div layout className="w-max h-full p-4">
                   {children}
                 </motion.div>
               </motion.div>
@@ -69,8 +81,11 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
+      onMouseLeave={() => setActive(null)}
+      className="relative rounded-full flex justify-center items-center space-x-6 px-8 py-4"
+      style={{
+        background: "transparent",
+      }}
     >
       {children}
     </nav>
@@ -89,19 +104,22 @@ export const ProductItem = ({
   src: string;
 }) => {
   return (
-    <a href={href} className="flex space-x-2">
+    <a href={href} className="flex space-x-3 group">
       <img
         src={src}
         width={140}
         height={70}
         alt={title}
-        className="shrink-0 rounded-md shadow-2xl"
+        className="shrink-0 rounded-xl shadow-2xl"
       />
       <div>
-        <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
+        <h4
+          className="text-base font-black mb-1"
+          style={{ fontFamily: "'Georgia', serif", color: "#ffffff" }}
+        >
           {title}
         </h4>
-        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
+        <p className="text-sm max-w-[10rem]" style={{ color: "#737373" }}>
           {description}
         </p>
       </div>
@@ -113,7 +131,14 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <a
       {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-black "
+      className="text-sm font-light transition-colors duration-200 block py-0.5"
+      style={{ color: "#a3a3a3" }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.color = "#C9A84C")
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.color = "#a3a3a3")
+      }
     >
       {children}
     </a>

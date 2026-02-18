@@ -1,94 +1,187 @@
 "use client";
 import React from "react";
-import { Button } from "./ui/moving-border";
 import Link from "next/link";
-import { div } from "motion/react-client";
+
 function Contact() {
   return (
-    <div className=" bg-gray-950 mt-10 ">
-      <div className="grid grid-cols-1 md:grid-cols-4 mb-15 px-30  ">
-<div className="max-w-7xl mx-auto">
-          <h1 className="font-semibold text-xl">Company</h1>
-          <ul className="space-y-2 text-gray-400 mt-3">
-            <li>
-              <Link href="/about">About Us</Link>
-            </li>
-            <li>
-              <Link href="courses">Careers</Link>
-            </li>
-            <li>
-              <Link href="/coures">Blog</Link>
-            </li>
+    <footer className="relative w-full bg-[#080808] overflow-hidden pt-20 pb-8">
+
+      {/* Top gold divider */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
+        style={{
+          background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
+        }}
+      />
+
+      {/* Subtle radial glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(201,168,76,0.05) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Brand + tagline */}
+      <div className="relative z-10 flex flex-col items-center mb-16 px-6 text-center">
+        <span
+          className="uppercase tracking-[0.35em] text-xs font-semibold mb-3"
+          style={{ color: "#C9A84C" }}
+        >
+          Believe Music India
+        </span>
+        <h2
+          className="text-3xl md:text-4xl font-black mb-3"
+          style={{
+            fontFamily: "'Georgia', serif",
+            background: "linear-gradient(135deg, #ffffff 30%, #C9A84C 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          From Gurukul to Global
+        </h2>
+        <div className="w-12 h-[2px] mt-2" style={{ background: "#C9A84C" }} />
+      </div>
+
+      {/* Grid links */}
+      <div className="relative z-10 max-w-6xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+
+        {/* Company */}
+        <div>
+          <h3
+            className="text-sm font-bold uppercase tracking-[0.2em] mb-5"
+            style={{ color: "#C9A84C" }}
+          >
+            Company
+          </h3>
+          <ul className="space-y-3">
+            {[
+              { label: "About Us", href: "/about" },
+              { label: "Careers", href: "/courses" },
+              { label: "Blog", href: "/courses" },
+            ].map((item) => (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  className="text-neutral-400 text-sm hover:text-white transition-colors duration-200"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        <div className="space-y-2">
-          <h1 className="font-semibold text-xl ">Quick Links</h1>
-          <ul className="mt-3 space-y-2 text-gray-400">
-            <li>
-              <Link href="/" className="font-light">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/courses" className="font-light">
-                Our Courses
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="font-light">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="font-light">
-                Contact Us
-              </Link>
-            </li>
+        {/* Quick Links */}
+        <div>
+          <h3
+            className="text-sm font-bold uppercase tracking-[0.2em] mb-5"
+            style={{ color: "#C9A84C" }}
+          >
+            Quick Links
+          </h3>
+          <ul className="space-y-3">
+            {[
+              { label: "Home", href: "/" },
+              { label: "Our Courses", href: "/courses" },
+              { label: "About Us", href: "/about" },
+              { label: "Contact Us", href: "/contact" },
+            ].map((item) => (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  className="text-neutral-400 text-sm hover:text-white transition-colors duration-200"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
-        <div max-w-7xl>
-          <h1 className="font-semibold text-xl ">Follow Us</h1>
-          <ul className="mt-3 space-y-2 text-gray-400">
-            <li>
-              <Link
-                href="https://www.facebook.com/believemusicindia"
-                className="font-light"
-              >
-                Facebook
-              </Link>
-            </li>
 
-            <li>
-              <Link
-                href="https://www.instagram.com/believemusicindia/"
-                className="font-light"
-              >
-                Instagram
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="https://x.com/i/flow/login?redirect_after_login=%2Fhashtag%2FBelievemusicindia%3Fsrc%3Dhashtag_click"
-                className="font-light"
-              >
-                Twitter
-              </Link>
-            </li>
+        {/* Follow Us */}
+        <div>
+          <h3
+            className="text-sm font-bold uppercase tracking-[0.2em] mb-5"
+            style={{ color: "#C9A84C" }}
+          >
+            Follow Us
+          </h3>
+          <ul className="space-y-3">
+            {[
+              { label: "Facebook", href: "https://www.facebook.com/believemusicindia" },
+              { label: "Instagram", href: "https://www.instagram.com/believemusicindia/" },
+              {
+                label: "Twitter",
+                href: "https://x.com/i/flow/login?redirect_after_login=%2Fhashtag%2FBelievemusicindia%3Fsrc%3Dhashtag_click",
+              },
+            ].map((item) => (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-400 text-sm hover:text-white transition-colors duration-200"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
-        <div max-w-7xl>
-          <h1 className="font-semibold text-xl"> Contact Us</h1>
-          <ul className="mt-3 space-y-2 text-gray-400">
+
+        {/* Contact */}
+        <div>
+          <h3
+            className="text-sm font-bold uppercase tracking-[0.2em] mb-5"
+            style={{ color: "#C9A84C" }}
+          >
+            Contact Us
+          </h3>
+          <ul className="space-y-3 text-neutral-400 text-sm">
             <li>New Delhi, India</li>
             <li>Delhi 10001</li>
-            <li>Email: info@musicschool.com</li>
-            <li>Phone: (123) 456-7890</li>
+            <li>
+              <a
+                href="mailto:info@musicschool.com"
+                className="hover:text-white transition-colors duration-200"
+              >
+                info@musicschool.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="tel:+11234567890"
+                className="hover:text-white transition-colors duration-200"
+              >
+                (123) 456-7890
+              </a>
+            </li>
           </ul>
         </div>
+
       </div>
-      <p className="text-center font-extralight mb-7 text-xs">© 2026 From Gurukul to Global. All rights reserved.</p>
-    </div>
+
+      {/* Bottom bar */}
+      <div className="relative z-10 max-w-6xl mx-auto px-8">
+        {/* Diamond divider */}
+        <div className="flex items-center gap-4 mb-6">
+          <div className="h-[1px] flex-1 bg-neutral-800" />
+          <div
+            className="w-2 h-2 rotate-45 border"
+            style={{ borderColor: "#C9A84C" }}
+          />
+          <div className="h-[1px] flex-1 bg-neutral-800" />
+        </div>
+
+        <p className="text-center text-neutral-600 text-xs tracking-widest uppercase">
+          © 2026 From Gurukul to Global. All rights reserved.
+        </p>
+      </div>
+
+    </footer>
   );
 }
 

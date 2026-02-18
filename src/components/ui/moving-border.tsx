@@ -1,4 +1,6 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React from "react";
 import {
   motion,
@@ -32,14 +34,13 @@ export function Button({
   return (
     <Component
       className={cn(
-        "relative h-16 w-40 overflow-hidden bg-transparent p-[1px] text-xl",
+        "relative h-14 w-44 overflow-hidden bg-transparent p-[1px] text-base",
         containerClassName,
       )}
-      style={{
-        borderRadius: borderRadius,
-      }}
+      style={{ borderRadius }}
       {...otherProps}
     >
+      {/* Animated gold moving border */}
       <div
         className="absolute inset-0"
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
@@ -47,20 +48,28 @@ export function Button({
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
-              "h-20 w-20 bg-[radial-gradient(#0ea5e9_40%,transparent_60%)] opacity-[0.8]",
+              "h-20 w-20 opacity-90",
               borderClassName,
             )}
+            style={{
+              background:
+                "radial-gradient(#C9A84C 40%, rgba(201,168,76,0.2) 70%, transparent 100%)",
+            }}
           />
         </MovingBorder>
       </div>
 
+      {/* Button face */}
       <div
         className={cn(
-          "relative flex h-full w-full items-center justify-center border border-slate-800 bg-slate-900/[0.8] text-sm text-white antialiased backdrop-blur-xl",
+          "relative flex h-full w-full items-center justify-center border text-sm font-semibold tracking-wide antialiased backdrop-blur-xl transition-colors duration-200",
           className,
         )}
         style={{
           borderRadius: `calc(${borderRadius} * 0.96)`,
+          background: "rgba(8,8,8,0.85)",
+          borderColor: "rgba(201,168,76,0.25)",
+          color: "#C9A84C",
         }}
       >
         {children}
@@ -82,7 +91,7 @@ export const MovingBorder = ({
   ry?: string;
   [key: string]: any;
 }) => {
-  const pathRef = useRef<any>();
+  const pathRef = useRef<SVGRectElement>(null);
   const progress = useMotionValue<number>(0);
 
   useAnimationFrame((time) => {
@@ -114,14 +123,7 @@ export const MovingBorder = ({
         height="100%"
         {...otherProps}
       >
-        <rect
-          fill="none"
-          width="100%"
-          height="100%"
-          rx={rx}
-          ry={ry}
-          ref={pathRef}
-        />
+        <rect fill="none" width="100%" height="100%" rx={rx} ry={ry} ref={pathRef} />
       </svg>
       <motion.div
         style={{

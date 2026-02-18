@@ -1,11 +1,10 @@
 "use client";
 
-import { div, p } from "motion/react-client";
 import { Button } from "./ui/moving-border";
-
 import courseData from "../data/music.json";
 import Link from "next/link";
 import { BackgroundGradient } from "./ui/background-gradient";
+
 interface Course {
   id: number;
   title: string;
@@ -15,38 +14,96 @@ interface Course {
   instructor: string;
   isFeatured: boolean;
 }
+
 const Featured = () => {
   const featured = courseData.courses.filter((course) => course.isFeatured);
+
   return (
-    <div className="py-12 bg-gray-900">
-      <div>
-        <div className="text-center">
-          <h2 className="text-base text-teal-600 font-semibold tracking-wide uppercase">
-            FEATURED COURSES
-          </h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
-            Learn With the Best{" "}
-          </p>
-        </div>
+    <section className="relative w-full bg-[#080808] overflow-hidden py-28">
+
+      {/* Top gold divider */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
+        style={{
+          background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
+        }}
+      />
+
+      {/* Radial glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(201,168,76,0.07) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Section header */}
+      <div className="relative z-10 text-center mb-16 px-4">
+        <span
+          className="uppercase tracking-[0.35em] text-xs font-semibold mb-4 block"
+          style={{ color: "#C9A84C" }}
+        >
+          Featured Courses
+        </span>
+        <h2
+          className="text-4xl md:text-6xl font-black"
+          style={{
+            fontFamily: "'Georgia', serif",
+            background: "linear-gradient(135deg, #ffffff 30%, #C9A84C 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          Learn With the Best
+        </h2>
+        <div
+          className="w-16 h-[2px] mx-auto mt-6"
+          style={{ background: "#C9A84C" }}
+        />
       </div>
-      <div className="mt-15">
-        <div className="grid grid-cols-1 lg:grid-cols-3    gap-8 justify-center">
+
+      {/* Cards */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {featured.map((course: Course) => (
             <div key={course.id} className="flex justify-center">
-              <BackgroundGradient className="flex flex-col rounded-[22px] bg-white dark:bg-black overflow-hidden h-full max-w-sm">
-                
-                <div className="p-4 sm:p-6 flex flex-col items-center text-center 'flex-grow'">
-                  <p className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
+              <BackgroundGradient className="flex flex-col rounded-[22px] bg-[#0f0f0f] overflow-hidden h-full max-w-sm w-full">
+                <div className="p-6 sm:p-8 flex flex-col items-center text-center flex-grow">
+
+                  {/* Course number badge */}
+                  <span
+                    className="text-xs uppercase tracking-[0.2em] font-bold mb-4 px-3 py-1 rounded-full border"
+                    style={{ color: "#C9A84C", borderColor: "#C9A84C44" }}
+                  >
+                    Course 0{course.id}
+                  </span>
+
+                  <p
+                    className="text-xl font-black mb-3 text-white"
+                    style={{ fontFamily: "'Georgia', serif" }}
+                  >
                     {course.title}
                   </p>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-400 'flex-grow''">
+
+                  <p className="text-sm text-neutral-400 leading-relaxed flex-grow mb-2">
                     {course.description}
                   </p>
-                  <Link
-                    href={`/courses `}
-                    className="border mt-3 rounded-2xl w-30 bg-blue-700 hover:bg-gray-800 transition duration-200"
+
+                  {/* Instructor */}
+                  <p
+                    className="text-xs uppercase tracking-widest mt-4 mb-6"
+                    style={{ color: "#C9A84C" }}
                   >
-                    Know More
+                    {course.instructor}
+                  </p>
+
+                  <Link
+                    href="/courses"
+                    className="w-full text-center py-2 px-6 rounded-xl text-sm font-semibold text-black transition-opacity duration-200 hover:opacity-80"
+                    style={{ background: "#C9A84C" }}
+                  >
+                    Know More →
                   </Link>
                 </div>
               </BackgroundGradient>
@@ -54,14 +111,35 @@ const Featured = () => {
           ))}
         </div>
       </div>
-      <div className="mt-15 text-center">
+
+      {/* View All button */}
+      <div className="mt-10 text-center">
         <Link href="/courses">
           <Button className=" font-semibold bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 cursor-pointer ">
             View All Courses
           </Button>
         </Link>
+      </div>  
+
+      {/* Bottom diamond divider */}
+      <div className="relative z-10 flex items-center gap-4 max-w-xs mx-auto mt-16 px-4">
+        <div className="h-[1px] flex-1 bg-neutral-800" />
+        <div
+          className="w-2 h-2 rotate-45 border"
+          style={{ borderColor: "#C9A84C" }}
+        />
+        <div className="h-[1px] flex-1 bg-neutral-800" />
       </div>
-    </div>
+
+      {/* Bottom gold divider */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
+        style={{
+          background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
+        }}
+      />
+
+    </section>
   );
 };
 
