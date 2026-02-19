@@ -90,7 +90,7 @@ function CourseCard({ course }: { course: Course }) {
           </CardItem>
 
           <CardItem translateZ="100" className="w-full">
-<<<<<<< HEAD
+{/* <<<<<<< HEAD */}
             <div className="relative overflow-hidden rounded-xl">
               <Image
                 src={course.image}
@@ -112,7 +112,7 @@ function CourseCard({ course }: { course: Course }) {
               className="h-44 w-full object-cover rounded-xl"
               alt={course.title}
             />
->>>>>>> 3ef811d (fix TypeScript errors)
+{/* >>>>>>> 3ef811d (fix TypeScript errors) */}
           </CardItem>
 
           {/* META */}
