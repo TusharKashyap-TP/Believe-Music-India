@@ -1,14 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
-import { motion } from "motion/react";
+import { motion, Transition } from "framer-motion";
 
-const transition = {
+/* FIXED transition typing */
+const transition: Transition = {
   type: "spring",
   mass: 0.5,
   damping: 11.5,
   stiffness: 100,
-  restDelta: 0.001,
-  restSpeed: 0.001,
 };
 
 export const MenuItem = ({
@@ -52,7 +53,6 @@ export const MenuItem = ({
                   boxShadow: "0 0 30px rgba(122,179,224,0.08)",
                 }}
               >
-                {/* Blue top accent line */}
                 <div
                   className="w-full h-[1px]"
                   style={{
@@ -60,6 +60,7 @@ export const MenuItem = ({
                       "linear-gradient(to right, transparent, #7AB3E0, transparent)",
                   }}
                 />
+
                 <motion.div layout className="w-max h-full p-4">
                   {children}
                 </motion.div>
@@ -83,9 +84,6 @@ export const Menu = ({
     <nav
       onMouseLeave={() => setActive(null)}
       className="relative rounded-full flex justify-center items-center space-x-6 px-8 py-4"
-      style={{
-        background: "transparent",
-      }}
     >
       {children}
     </nav>
@@ -133,12 +131,8 @@ export const HoveredLink = ({ children, ...rest }: any) => {
       {...rest}
       className="text-sm font-light transition-colors duration-200 block py-0.5"
       style={{ color: "#a3a3a3" }}
-      onMouseEnter={(e) =>
-        (e.currentTarget.style.color = "#7AB3E0")
-      }
-      onMouseLeave={(e) =>
-        (e.currentTarget.style.color = "#a3a3a3")
-      }
+      onMouseEnter={(e) => (e.currentTarget.style.color = "#7AB3E0")}
+      onMouseLeave={(e) => (e.currentTarget.style.color = "#a3a3a3")}
     >
       {children}
     </a>
