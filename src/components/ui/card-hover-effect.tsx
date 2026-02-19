@@ -31,7 +31,7 @@ export const HoverEffect = ({
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          {/* Gold hover background glow */}
+          {/* Blue hover background glow */}
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
@@ -42,7 +42,7 @@ export const HoverEffect = ({
                 exit={{ opacity: 0, transition: { duration: 0.15, delay: 0.2 } }}
                 style={{
                   background:
-                    "radial-gradient(ellipse at center, rgba(201,168,76,0.1) 0%, transparent 70%)",
+                    "radial-gradient(ellipse at center, rgba(122,179,224,0.1) 0%, transparent 70%)",
                 }}
               />
             )}
@@ -71,16 +71,16 @@ export const Card = ({
         className,
       )}
       style={{
-        background: "linear-gradient(145deg, #111111, #0d0d0d)",
-        border: "1px solid rgba(201,168,76,0.12)",
+        background: "linear-gradient(145deg, #070E1F, #04091A)",
+        border: "1px solid rgba(122,179,224,0.12)",
       }}
     >
-      {/* Top gold accent line */}
+      {/* Top blue accent line */}
       <div
         className="absolute top-0 left-6 right-6 h-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
           background:
-            "linear-gradient(to right, transparent, #C9A84C, transparent)",
+            "linear-gradient(to right, transparent, #7AB3E0, transparent)",
         }}
       />
 
@@ -103,7 +103,11 @@ export const CardTitle = ({
       className={cn("font-black tracking-wide mt-4 text-base", className)}
       style={{
         fontFamily: "'Georgia', serif",
-        color: "#ffffff",
+        background: "linear-gradient(135deg, #ffffff 30%, #7AB3E0 100%)",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        color: "transparent",
       }}
     >
       {children}

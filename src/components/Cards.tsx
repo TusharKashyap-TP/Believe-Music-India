@@ -38,14 +38,14 @@ const musicSchoolTestimonials = [
 
 function Cards() {
   return (
-    <section className="relative w-full bg-[#080808] overflow-hidden py-24">
+    <section className="relative w-full bg-[#04091A] overflow-hidden py-24">
 
       {/* Top divider line */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
         style={{
           background:
-            "linear-gradient(to right, transparent, #C9A84C, transparent)",
+            "linear-gradient(to right, transparent, #7AB3E0, transparent)",
         }}
       />
 
@@ -71,7 +71,7 @@ function Cards() {
         {/* Eyebrow */}
         <span
           className="uppercase tracking-[0.35em] text-xs font-semibold mb-4"
-          style={{ color: "#C9A84C" }}
+          style={{ color: "#7AB3E0" }}
         >
           Testimonials
         </span>
@@ -81,9 +81,11 @@ function Cards() {
           className="text-4xl md:text-5xl font-black text-center mb-4 px-4"
           style={{
             fontFamily: "'Georgia', serif",
-            background: "linear-gradient(135deg, #fff 30%, #C9A84C 100%)",
+            background: "linear-gradient(135deg, #fff 30%, #7AB3E0 100%)",
             WebkitBackgroundClip: "text",
+            backgroundClip: "text",
             WebkitTextFillColor: "transparent",
+            color: "transparent",
           }}
         >
           Hear Our Harmony
@@ -94,10 +96,10 @@ function Cards() {
           Voices of success from our students
         </p>
 
-        {/* Gold rule */}
+        {/* Blue rule */}
         <div
           className="w-16 h-[2px] mb-12"
-          style={{ background: "#C9A84C" }}
+          style={{ background: "#7AB3E0" }}
         />
 
         {/* Infinite moving cards */}
@@ -118,7 +120,7 @@ function Cards() {
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
         style={{
           background:
-            "linear-gradient(to right, transparent, #C9A84C, transparent)",
+            "linear-gradient(to right, transparent, #7AB3E0, transparent)",
         }}
       />
 

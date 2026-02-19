@@ -28,7 +28,7 @@ export const MenuItem = ({
         transition={{ duration: 0.3 }}
         className="cursor-pointer text-sm font-medium tracking-wide transition-colors duration-200"
         style={{
-          color: active === item ? "#C9A84C" : "#a3a3a3",
+          color: active === item ? "#7AB3E0" : "#a3a3a3",
         }}
       >
         {item}
@@ -47,17 +47,17 @@ export const MenuItem = ({
                 layoutId="active"
                 className="backdrop-blur-md rounded-2xl overflow-hidden shadow-xl"
                 style={{
-                  background: "rgba(8,8,8,0.95)",
-                  border: "1px solid rgba(201,168,76,0.2)",
-                  boxShadow: "0 0 30px rgba(201,168,76,0.08)",
+                  background: "rgba(4,9,26,0.95)",
+                  border: "1px solid rgba(122,179,224,0.2)",
+                  boxShadow: "0 0 30px rgba(122,179,224,0.08)",
                 }}
               >
-                {/* Gold top accent line */}
+                {/* Blue top accent line */}
                 <div
                   className="w-full h-[1px]"
                   style={{
                     background:
-                      "linear-gradient(to right, transparent, #C9A84C, transparent)",
+                      "linear-gradient(to right, transparent, #7AB3E0, transparent)",
                   }}
                 />
                 <motion.div layout className="w-max h-full p-4">
@@ -134,7 +134,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
       className="text-sm font-light transition-colors duration-200 block py-0.5"
       style={{ color: "#a3a3a3" }}
       onMouseEnter={(e) =>
-        (e.currentTarget.style.color = "#C9A84C")
+        (e.currentTarget.style.color = "#7AB3E0")
       }
       onMouseLeave={(e) =>
         (e.currentTarget.style.color = "#a3a3a3")

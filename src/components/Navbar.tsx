@@ -19,17 +19,15 @@ function Navbar({ className }: { className?: string }) {
     <div
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-500",
-        scrolled
-          ? "top-0 py-3"
-          : "top-4 py-0",
+        scrolled ? "top-0 py-3" : "top-4 py-0",
         className
       )}
     >
-      {/* Gold top border line — only when scrolled */}
+      {/* Blue top border line — only when scrolled */}
       <div
         className="absolute top-0 left-0 right-0 h-[1px] transition-opacity duration-500"
         style={{
-          background: "linear-gradient(to right, transparent, #C9A84C 30%, #C9A84C 70%, transparent)",
+          background: "linear-gradient(to right, transparent, #7AB3E0 30%, #7AB3E0 70%, transparent)",
           opacity: scrolled ? 1 : 0,
         }}
       />
@@ -38,7 +36,7 @@ function Navbar({ className }: { className?: string }) {
         className={cn(
           "max-w-5xl mx-auto px-6 transition-all duration-500",
           scrolled
-            ? "bg-[#080808]/90 backdrop-blur-md border border-[#1f1f1f] rounded-none shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
+            ? "bg-[#04091A]/90 backdrop-blur-md border border-[#0D1F3C] rounded-none shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
             : "bg-transparent"
         )}
       >
@@ -46,17 +44,16 @@ function Navbar({ className }: { className?: string }) {
 
           {/* ── Logo ── */}
           <Link href="/" className="group flex items-center gap-3 shrink-0">
-            {/* Rotated gold diamond — matches your About page decorative element */}
             <div
-              className="w-5 h-5 border-2 rotate-45 transition-all duration-300 group-hover:bg-[#C9A84C]/20"
-              style={{ borderColor: "#C9A84C" }}
+              className="w-5 h-5 border-2 rotate-45 transition-all duration-300 group-hover:bg-[#7AB3E0]/20"
+              style={{ borderColor: "#7AB3E0" }}
             />
             <span
               className="text-white font-black text-lg tracking-tight leading-none"
               style={{ fontFamily: "'Georgia', serif" }}
             >
               Believe
-              <span style={{ color: "#C9A84C" }}>.</span>
+              <span style={{ color: "#7AB3E0" }}>.</span>
             </span>
           </Link>
 
@@ -83,7 +80,7 @@ function Navbar({ className }: { className?: string }) {
                       <span className="flex items-center gap-2 group/item">
                         <span
                           className="w-1 h-1 rounded-full shrink-0 transition-all duration-300 group-hover/item:w-3"
-                          style={{ background: "#C9A84C" }}
+                          style={{ background: "#7AB3E0" }}
                         />
                         {item.label}
                       </span>
@@ -109,11 +106,10 @@ function Navbar({ className }: { className?: string }) {
           <div className="hidden md:block shrink-0">
             <Link
               href="/contact"
-              className="group relative inline-flex items-center gap-2 overflow-hidden border px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-black transition-all duration-300 hover:text-black"
-              style={{ background: "#C9A84C", borderColor: "#C9A84C" }}
+              className="group relative inline-flex items-center gap-2 overflow-hidden border px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:text-white"
+              style={{ background: "#1A3F6F", borderColor: "#7AB3E0" }}
             >
-              {/* shimmer sweep */}
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
               <span className="relative">Get Started</span>
               <span className="relative transition-transform duration-300 group-hover:translate-x-0.5">→</span>
             </Link>
@@ -155,21 +151,21 @@ function MobileMenu() {
         <span
           className="block h-[1.5px] w-6 transition-all duration-300 origin-center"
           style={{
-            background: open ? "#C9A84C" : "#fff",
+            background: open ? "#7AB3E0" : "#fff",
             transform: open ? "translateY(6.5px) rotate(45deg)" : "none",
           }}
         />
         <span
           className="block h-[1.5px] w-6 transition-all duration-300"
           style={{
-            background: open ? "#C9A84C" : "#fff",
+            background: open ? "#7AB3E0" : "#fff",
             opacity: open ? 0 : 1,
           }}
         />
         <span
           className="block h-[1.5px] w-6 transition-all duration-300 origin-center"
           style={{
-            background: open ? "#C9A84C" : "#fff",
+            background: open ? "#7AB3E0" : "#fff",
             transform: open ? "translateY(-6.5px) rotate(-45deg)" : "none",
           }}
         />
@@ -180,15 +176,15 @@ function MobileMenu() {
         className="absolute top-full left-0 right-0 overflow-hidden transition-all duration-500"
         style={{
           maxHeight: open ? "600px" : "0px",
-          background: "#080808",
-          borderTop: open ? "1px solid #1f1f1f" : "none",
+          background: "#04091A",
+          borderTop: open ? "1px solid #0D1F3C" : "none",
         }}
       >
-        {/* Gold accent line */}
+        {/* Blue accent line */}
         <div
           className="h-[1px] w-full"
           style={{
-            background: "linear-gradient(to right, transparent, #C9A84C 30%, #C9A84C 70%, transparent)",
+            background: "linear-gradient(to right, transparent, #7AB3E0 30%, #7AB3E0 70%, transparent)",
           }}
         />
 
@@ -199,11 +195,11 @@ function MobileMenu() {
               href={link.href}
               onClick={() => setOpen(false)}
               className="group flex items-center gap-3 py-3 text-sm font-medium text-neutral-400 transition-colors duration-200 hover:text-white border-b"
-              style={{ borderColor: "#1f1f1f", animationDelay: `${i * 40}ms` }}
+              style={{ borderColor: "#0D1F3C", animationDelay: `${i * 40}ms` }}
             >
               <span
                 className="w-0 h-[1.5px] transition-all duration-300 group-hover:w-4"
-                style={{ background: "#C9A84C" }}
+                style={{ background: "#7AB3E0" }}
               />
               {link.label}
             </Link>
@@ -212,8 +208,8 @@ function MobileMenu() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="mt-5 py-3 text-center text-xs font-bold uppercase tracking-[0.2em] text-black"
-            style={{ background: "#C9A84C" }}
+            className="mt-5 py-3 text-center text-xs font-bold uppercase tracking-[0.2em] text-white"
+            style={{ background: "#1A3F6F" }}
           >
             Get Started →
           </Link>

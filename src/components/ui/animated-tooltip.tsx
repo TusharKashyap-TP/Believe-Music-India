@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
@@ -67,29 +66,23 @@ export const AnimatedTooltip = ({
                   transition: { type: "spring", stiffness: 260, damping: 10 },
                 }}
                 exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                style={{
-                  translateX,
-                  rotate,
-                  whiteSpace: "nowrap",
-                }}
-                className="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center rounded-xl px-4 py-2 text-xs shadow-xl"
-                // Gold-themed tooltip box
                 // @ts-ignore
                 style={{
                   translateX,
                   rotate,
                   whiteSpace: "nowrap",
-                  background: "rgba(8,8,8,0.95)",
-                  border: "1px solid rgba(201,168,76,0.3)",
-                  boxShadow: "0 0 20px rgba(201,168,76,0.15)",
+                  background: "rgba(4,9,26,0.95)",
+                  border: "1px solid rgba(122,179,224,0.3)",
+                  boxShadow: "0 0 20px rgba(122,179,224,0.15)",
                 }}
+                className="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center rounded-xl px-4 py-2 text-xs shadow-xl"
               >
-                {/* Gold bottom line accents */}
+                {/* Blue bottom line accent */}
                 <div
                   className="absolute inset-x-4 -bottom-px z-30 h-px"
                   style={{
                     background:
-                      "linear-gradient(to right, transparent, #C9A84C, transparent)",
+                      "linear-gradient(to right, transparent, #7AB3E0, transparent)",
                   }}
                 />
 
@@ -104,7 +97,7 @@ export const AnimatedTooltip = ({
                 </div>
                 <div
                   className="text-xs font-medium mt-0.5"
-                  style={{ color: "#C9A84C" }}
+                  style={{ color: "#7AB3E0" }}
                 >
                   {item.designation}
                 </div>
@@ -112,7 +105,7 @@ export const AnimatedTooltip = ({
             )}
           </AnimatePresence>
 
-          {/* Avatar with gold ring on hover */}
+          {/* Avatar with blue ring on hover */}
           <img
             onMouseMove={handleMouseMove}
             height={100}
@@ -122,10 +115,10 @@ export const AnimatedTooltip = ({
             className="relative !m-0 h-14 w-14 rounded-full object-cover object-top !p-0 transition-all duration-300 group-hover:z-30 group-hover:scale-110"
             style={{
               border: hoveredIndex === item.id
-                ? "2px solid #C9A84C"
-                : "2px solid rgba(201,168,76,0.25)",
+                ? "2px solid #7AB3E0"
+                : "2px solid rgba(122,179,224,0.25)",
               boxShadow: hoveredIndex === item.id
-                ? "0 0 16px rgba(201,168,76,0.4)"
+                ? "0 0 16px rgba(122,179,224,0.4)"
                 : "none",
             }}
           />

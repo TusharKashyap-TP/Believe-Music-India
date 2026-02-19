@@ -40,7 +40,7 @@ export function Button({
       style={{ borderRadius }}
       {...otherProps}
     >
-      {/* Animated gold moving border */}
+      {/* Animated blue moving border */}
       <div
         className="absolute inset-0"
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
@@ -53,7 +53,7 @@ export function Button({
             )}
             style={{
               background:
-                "radial-gradient(#C9A84C 40%, rgba(201,168,76,0.2) 70%, transparent 100%)",
+                "radial-gradient(#7AB3E0 40%, rgba(122,179,224,0.2) 70%, transparent 100%)",
             }}
           />
         </MovingBorder>
@@ -67,9 +67,9 @@ export function Button({
         )}
         style={{
           borderRadius: `calc(${borderRadius} * 0.96)`,
-          background: "rgba(8,8,8,0.85)",
-          borderColor: "rgba(201,168,76,0.25)",
-          color: "#C9A84C",
+          background: "rgba(4,9,26,0.85)",
+          borderColor: "rgba(122,179,224,0.25)",
+          color: "#7AB3E0",
         }}
       >
         {children}

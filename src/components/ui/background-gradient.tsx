@@ -23,12 +23,12 @@ export const BackgroundGradient = ({
     },
   };
 
-  // Gold-toned radial gradient replacing the original cyan/purple/blue
-  const goldGradient = [
-    "radial-gradient(circle_farthest-side_at_0_100%, #C9A84C, transparent)",
-    "radial-gradient(circle_farthest-side_at_100%_0, #8a6420, transparent)",
-    "radial-gradient(circle_farthest-side_at_100%_100%, #d4b96a, transparent)",
-    "radial-gradient(circle_farthest-side_at_0_0, #7a5f1a, #080808)",
+  // Blue-toned radial gradient replacing the gold
+  const blueGradient = [
+    "radial-gradient(circle_farthest-side_at_0_100%, #7AB3E0, transparent)",
+    "radial-gradient(circle_farthest-side_at_100%_0, #1A3F6F, transparent)",
+    "radial-gradient(circle_farthest-side_at_100%_100%, #b0d4f0, transparent)",
+    "radial-gradient(circle_farthest-side_at_0_0, #0D1F3C, #04091A)",
   ].join(",");
 
   return (
@@ -46,7 +46,7 @@ export const BackgroundGradient = ({
         }
         style={{
           backgroundSize: animate ? "400% 400%" : undefined,
-          backgroundImage: goldGradient,
+          backgroundImage: blueGradient,
         }}
         className={cn(
           "absolute inset-0 rounded-3xl z-[1] opacity-50 group-hover:opacity-80 blur-xl transition duration-500 will-change-transform",
@@ -65,7 +65,7 @@ export const BackgroundGradient = ({
         }
         style={{
           backgroundSize: animate ? "400% 400%" : undefined,
-          backgroundImage: goldGradient,
+          backgroundImage: blueGradient,
         }}
         className={cn(
           "absolute inset-0 rounded-3xl z-[1] will-change-transform",

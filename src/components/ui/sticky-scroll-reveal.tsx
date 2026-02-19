@@ -38,18 +38,18 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
-  // Gold-toned background colors cycling through dark shades
+  // Blue-toned background colors cycling through dark navy shades
   const backgroundColors = [
-    "#080808",
-    "#0d0b07",
-    "#0f0d09",
+    "#04091A",
+    "#050C20",
+    "#060E22",
   ];
 
-  // Gold-toned gradients for the right panel
+  // Blue-toned gradients for the right panel
   const linearGradients = [
-    "linear-gradient(to bottom right, #C9A84C, #7a5f1a)",
-    "linear-gradient(to bottom right, #b8922a, #C9A84C)",
-    "linear-gradient(to bottom right, #8a6420, #d4b96a)",
+    "linear-gradient(to bottom right, #7AB3E0, #0D1F3C)",
+    "linear-gradient(to bottom right, #1A3F6F, #7AB3E0)",
+    "linear-gradient(to bottom right, #0D1F3C, #b0d4f0)",
   ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(
@@ -74,12 +74,12 @@ export const StickyScroll = ({
           {content.map((item, index) => (
             <div key={item.title + index} className="my-20">
 
-              {/* Gold number indicator */}
+              {/* Blue number indicator */}
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: activeCard === index ? 1 : 0 }}
                 className="block text-xs uppercase tracking-[0.3em] font-semibold mb-3"
-                style={{ color: "#C9A84C" }}
+                style={{ color: "#7AB3E0" }}
               >
                 0{index + 1}
               </motion.span>
@@ -96,12 +96,12 @@ export const StickyScroll = ({
                 {item.title}
               </motion.h2>
 
-              {/* Gold underline on active */}
+              {/* Blue underline on active */}
               <motion.div
                 animate={{ width: activeCard === index ? "3rem" : "0rem" }}
                 transition={{ duration: 0.3 }}
                 className="h-[2px] mt-3 mb-4"
-                style={{ background: "#C9A84C" }}
+                style={{ background: "#7AB3E0" }}
               />
 
               <motion.p
@@ -120,17 +120,14 @@ export const StickyScroll = ({
 
       {/* Right: sticky visual panel */}
       <div
-        style={{ background: backgroundGradient }}
         className={cn(
           "sticky top-10 hidden h-60 w-80 overflow-hidden rounded-xl lg:block border",
           contentClassName,
         )}
-        // Gold border around the panel
-        // @ts-ignore
         style={{
           background: backgroundGradient,
-          borderColor: "rgba(201,168,76,0.3)",
-          boxShadow: "0 0 40px rgba(201,168,76,0.1)",
+          borderColor: "rgba(122,179,224,0.3)",
+          boxShadow: "0 0 40px rgba(122,179,224,0.1)",
         }}
       >
         {/* Decorative inner overlay */}
@@ -138,7 +135,7 @@ export const StickyScroll = ({
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(45deg, rgba(201,168,76,0.3) 0px, transparent 1px, transparent 20px)",
+              "repeating-linear-gradient(45deg, rgba(122,179,224,0.3) 0px, transparent 1px, transparent 20px)",
           }}
         />
         {/* Active card number watermark */}

@@ -47,13 +47,13 @@ const musicSchoolContent = [
 
 function Tap() {
   return (
-    <section className="relative w-full bg-[#080808] overflow-hidden">
+    <section className="relative w-full bg-[#04091A] overflow-hidden">
 
-      {/* Top gold divider */}
+      {/* Top blue divider */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
         style={{
-          background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
+          background: "linear-gradient(to right, transparent, #7AB3E0, transparent)",
         }}
       />
 
@@ -62,7 +62,7 @@ function Tap() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(122,179,224,0.06) 0%, transparent 70%)",
         }}
       />
 
@@ -70,7 +70,7 @@ function Tap() {
       <div className="relative z-10 text-center pt-24 pb-12 px-4">
         <span
           className="uppercase tracking-[0.35em] text-xs font-semibold mb-4 block"
-          style={{ color: "#C9A84C" }}
+          style={{ color: "#7AB3E0" }}
         >
           Why Choose Us
         </span>
@@ -78,16 +78,18 @@ function Tap() {
           className="text-4xl md:text-6xl font-black"
           style={{
             fontFamily: "'Georgia', serif",
-            background: "linear-gradient(135deg, #ffffff 30%, #C9A84C 100%)",
+            background: "linear-gradient(135deg, #ffffff 30%, #7AB3E0 100%)",
             WebkitBackgroundClip: "text",
+            backgroundClip: "text",
             WebkitTextFillColor: "transparent",
+            color: "transparent",
           }}
         >
           The Believe Difference
         </h2>
         <div
           className="w-16 h-[2px] mx-auto mt-6"
-          style={{ background: "#C9A84C" }}
+          style={{ background: "#7AB3E0" }}
         />
       </div>
 
@@ -98,19 +100,19 @@ function Tap() {
 
       {/* Bottom diamond divider */}
       <div className="relative z-10 flex items-center gap-4 max-w-xs mx-auto py-12 px-4">
-        <div className="h-[1px] flex-1 bg-neutral-800" />
+        <div className="h-[1px] flex-1 bg-[#0D1F3C]" />
         <div
           className="w-2 h-2 rotate-45 border"
-          style={{ borderColor: "#C9A84C" }}
+          style={{ borderColor: "#7AB3E0" }}
         />
-        <div className="h-[1px] flex-1 bg-neutral-800" />
+        <div className="h-[1px] flex-1 bg-[#0D1F3C]" />
       </div>
 
-      {/* Bottom gold divider */}
+      {/* Bottom blue divider */}
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
         style={{
-          background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
+          background: "linear-gradient(to right, transparent, #7AB3E0, transparent)",
         }}
       />
 

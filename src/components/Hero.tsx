@@ -5,7 +5,7 @@ import { Button } from "./ui/moving-border";
 
 function Hero() {
   return (
-    <div className="relative h-screen w-full bg-[#080808] flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative h-screen w-full bg-[#04091A] flex flex-col items-center justify-center overflow-hidden">
 
       {/* Spotlight */}
       <Spotlight
@@ -17,16 +17,16 @@ function Hero() {
       <div
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-10"
         style={{
-          background: "linear-gradient(to bottom, transparent, #080808)",
+          background: "linear-gradient(to bottom, transparent, #04091A)",
         }}
       />
 
-      {/* Subtle radial gold glow behind content */}
+      {/* Subtle radial blue glow behind content */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% 60%, rgba(201,168,76,0.07) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 50% at 50% 60%, rgba(122,179,224,0.07) 0%, transparent 70%)",
         }}
       />
 
@@ -36,7 +36,7 @@ function Hero() {
         {/* Eyebrow */}
         <span
           className="uppercase tracking-[0.4em] text-xs font-semibold mb-6"
-          style={{ color: "#C9A84C" }}
+          style={{ color: "#7AB3E0" }}
         >
           Welcome to
         </span>
@@ -46,18 +46,20 @@ function Hero() {
           className="text-5xl md:text-8xl font-black leading-none mb-6"
           style={{
             fontFamily: "'Georgia', serif",
-            background: "linear-gradient(160deg, #ffffff 0%, #e0e0e0 40%, #C9A84C 100%)",
+            background: "linear-gradient(160deg, #ffffff 0%, #e0e0e0 40%, #7AB3E0 100%)",
             WebkitBackgroundClip: "text",
+            backgroundClip: "text",
             WebkitTextFillColor: "transparent",
+            color: "transparent",
           }}
         >
           Believe Music India
         </h1>
 
-        {/* Gold rule */}
+        {/* Blue rule */}
         <div
           className="w-20 h-[2px] mb-8"
-          style={{ background: "#C9A84C" }}
+          style={{ background: "#7AB3E0" }}
         />
 
         {/* Subheading */}
@@ -70,19 +72,18 @@ function Hero() {
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="mt-10 text-center">
-        <Link href="/courses">
-          <Button className=" font-semibold bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 cursor-pointer ">
-            View All Courses
-          </Button>
-        </Link>
-      </div>  
-          
+            <Link href="/courses">
+              <Button className="font-semibold bg-white dark:bg-[#070E1F] text-black dark:text-white border-neutral-200 dark:border-[#0D1F3C] cursor-pointer">
+                View All Courses
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* Bottom scroll hint */}
-      <div className=" absolute bottom-10 z-20 flex flex-col items-center gap-2 opacity-40">
-        <span className="text-xs tracking-widest uppercase text-neutral-400 mt-10">
+      <div className=" bottom-10 z-20 flex flex-col items-center gap-2 opacity-40 ">
+        <span className="text-xs tracking-widest uppercase text-neutral-400 mt-10 animate-pulse">
           Scroll
         </span>
         <div className="w-[1px] h-10 bg-gradient-to-b from-neutral-400 to-transparent animate-pulse" />

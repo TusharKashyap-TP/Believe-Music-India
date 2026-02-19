@@ -1,60 +1,66 @@
+/* @tailwindcss/tailwind v4 */
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind base;
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind utilities;
+/* stylelint-disable-next-line at-rule-no-unknown */
+
+/* stylelint-disable-next-line at-rule-no-unknown */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --background: 214 75% 5%;        /* #04091A navy */
+    --foreground: 210 40% 98%;       /* near white */
+    --card: 218 70% 7%;              /* #070E1F deep navy */
+    --card-foreground: 210 40% 98%;
+    --popover: 218 70% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 207 55% 67%;          /* #7AB3E0 blue */
+    --primary-foreground: 214 75% 5%;
+    --secondary: 217 60% 10%;        /* #0D1F3C dark navy */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 60% 10%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 207 55% 67%;           /* #7AB3E0 blue */
+    --accent-foreground: 214 75% 5%;
+    --border: 217 60% 12%;           /* subtle navy border */
+    --input: 217 60% 12%;
+    --ring: 207 55% 67%;             /* #7AB3E0 blue focus ring */
     --radius: 0.5rem;
 
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 4, 9, 26;   /* #04091A */
+    --background-end-rgb: 4, 9, 26;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --background: 214 75% 5%;
+    --foreground: 210 40% 98%;
+    --card: 218 70% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 218 70% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 207 55% 67%;
+    --primary-foreground: 214 75% 5%;
+    --secondary: 217 60% 10%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 60% 10%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 207 55% 67%;
+    --accent-foreground: 214 75% 5%;
+    --border: 217 60% 12%;
+    --input: 217 60% 12%;
+    --ring: 207 55% 67%;
 
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 4, 9, 26;
+    --background-end-rgb: 4, 9, 26;
   }
 }
 
 @layer base {
-  /* ✅ Fixed: plain CSS instead of @apply to avoid build error */
   * {
     border-color: hsl(var(--border));
   }

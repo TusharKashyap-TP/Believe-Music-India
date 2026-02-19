@@ -24,9 +24,9 @@ function FilterPill({
       onClick={onClick}
       className="relative px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] border transition-all duration-300 overflow-hidden group"
       style={{
-        borderColor: active ? "#C9A84C" : "#1f1f1f",
-        background: active ? "#C9A84C" : "linear-gradient(145deg, #111, #0d0d0d)",
-        color: active ? "#080808" : "#7a7264",
+        borderColor: active ? "#7AB3E0" : "#0D1F3C",
+        background: active ? "#7AB3E0" : "linear-gradient(145deg, #070E1F, #05091A)",
+        color: active ? "#04091A" : "#4a6a8a",
       }}
     >
       <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
@@ -44,18 +44,18 @@ function CourseCard({ course }: { course: (typeof courseData.courses)[0] }) {
       <CardBody
         className="relative group/card rounded-2xl border p-6 overflow-hidden flex flex-col"
         style={{
-          background: "linear-gradient(145deg, #111111, #0d0d0d)",
-          borderColor: "#1f1f1f",
+          background: "linear-gradient(145deg, #070E1F, #05091A)",
+          borderColor: "#0D1F3C",
           width: "22rem",
           height: "30rem",
         }}
       >
-        {/* Gold top accent — matches artist cards */}
+        {/* Blue top accent */}
         <div
           className="absolute top-0 left-8 right-8 h-[1px]"
           style={{
             background:
-              "linear-gradient(to right, transparent, #C9A84C, transparent)",
+              "linear-gradient(to right, transparent, #7AB3E0, transparent)",
           }}
         />
 
@@ -64,11 +64,11 @@ function CourseCard({ course }: { course: (typeof courseData.courses)[0] }) {
           <CardItem translateZ="30" className="mb-3">
             <span
               className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] font-semibold"
-              style={{ color: "#C9A84C" }}
+              style={{ color: "#7AB3E0" }}
             >
               <span
                 className="w-1 h-1 rounded-full"
-                style={{ background: "#C9A84C" }}
+                style={{ background: "#7AB3E0" }}
               />
               {course.instructor}
             </span>
@@ -115,8 +115,8 @@ function CourseCard({ course }: { course: (typeof courseData.courses)[0] }) {
             {/* Level badge on image */}
             {course.level && (
               <span
-                className="absolute bottom-3 left-3 text-[9px] uppercase tracking-widest font-bold px-2 py-1"
-                style={{ background: "#C9A84C", color: "#080808" }}
+                className="absolute bottom-3 left-3 text-[9px] uppercase tracking-widest font-bold px-2 py-1 text-white"
+                style={{ background: "#1A3F6F" }}
               >
                 {course.level}
               </span>
@@ -127,12 +127,12 @@ function CourseCard({ course }: { course: (typeof courseData.courses)[0] }) {
         {/* Meta row — pushed to bottom */}
         <div
           className="flex items-center gap-4 mt-auto pt-4 border-t text-[10px] uppercase tracking-widest text-neutral-600"
-          style={{ borderColor: "#1f1f1f" }}
+          style={{ borderColor: "#0D1F3C" }}
         >
           {course.duration && <span>⏱ {course.duration}</span>}
           {course.lessons && <span>◈ {course.lessons} lessons</span>}
           {course.price && (
-            <span className="ml-auto font-bold" style={{ color: "#C9A84C" }}>
+            <span className="ml-auto font-bold" style={{ color: "#7AB3E0" }}>
               {course.price}
             </span>
           )}
@@ -144,7 +144,7 @@ function CourseCard({ course }: { course: (typeof courseData.courses)[0] }) {
             translateZ={20}
             as="button"
             className="text-xs font-medium tracking-wide transition-colors duration-200 hover:text-white"
-            style={{ color: "#C9A84C" }}
+            style={{ color: "#7AB3E0" }}
           >
             Learn more →
           </CardItem>
@@ -152,10 +152,10 @@ function CourseCard({ course }: { course: (typeof courseData.courses)[0] }) {
           <CardItem
             translateZ={20}
             as="button"
-            className="relative overflow-hidden group/btn px-5 py-2 text-xs font-bold text-black tracking-widest uppercase transition-opacity duration-200 hover:opacity-90"
-            style={{ background: "#C9A84C" }}
+            className="relative overflow-hidden group/btn px-5 py-2 text-xs font-bold text-white tracking-widest uppercase transition-opacity duration-200 hover:opacity-90"
+            style={{ background: "#1A3F6F" }}
           >
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover/btn:translate-x-full" />
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-500 group-hover/btn:translate-x-full" />
             <span className="relative">Enroll Now</span>
           </CardItem>
         </div>
@@ -190,42 +190,42 @@ export default function CoursesPage() {
         );
 
   return (
-    <main className="min-h-screen bg-[#080808] text-white overflow-x-hidden">
+    <main className="min-h-screen bg-[#04091A] text-white overflow-x-hidden">
 
       {/* ── HERO HEADER ── */}
       <section className="relative pt-36 pb-24 px-6 flex flex-col items-center justify-center overflow-hidden">
         <BackgroundBeams className="absolute inset-0 z-0" />
 
         {/* Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#080808] z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#04091A] z-10 pointer-events-none" />
 
         {/* Left accent line */}
         <div
           className="absolute left-0 top-0 bottom-0 w-[3px]"
           style={{
             background:
-              "linear-gradient(to bottom, transparent, #C9A84C 30%, #C9A84C 70%, transparent)",
+              "linear-gradient(to bottom, transparent, #7AB3E0 30%, #7AB3E0 70%, transparent)",
           }}
         />
 
         <div className="relative z-20 text-center max-w-3xl mx-auto">
           {/* Eyebrow */}
           <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#C9A84C]" />
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7AB3E0]" />
             <span
               className="text-[10px] uppercase tracking-[0.35em] font-semibold"
-              style={{ color: "#C9A84C" }}
+              style={{ color: "#7AB3E0" }}
             >
               Our Curriculum
             </span>
-            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#C9A84C]" />
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#7AB3E0]" />
           </div>
 
           <h1
             className="text-6xl md:text-8xl font-black leading-none tracking-tight mb-6"
             style={{
               fontFamily: "'Georgia', serif",
-              background: "linear-gradient(135deg, #fff 30%, #C9A84C 100%)",
+              background: "linear-gradient(135deg, #fff 30%, #7AB3E0 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -236,7 +236,7 @@ export default function CoursesPage() {
           {/* Decorative rule */}
           <div
             className="w-16 h-[2px] mx-auto mb-6"
-            style={{ background: "#C9A84C" }}
+            style={{ background: "#7AB3E0" }}
           />
 
           <p className="text-neutral-400 text-base md:text-lg leading-relaxed font-light">
@@ -257,16 +257,16 @@ export default function CoursesPage() {
       {/* ── FILTER BAR ── */}
       <section className="px-6 pb-10">
         <div className="max-w-6xl mx-auto">
-          {/* Section divider — mirrors Artists section */}
+          {/* Section divider */}
           <div className="flex items-center gap-6 mb-10">
-            <div className="h-[1px] flex-1 bg-neutral-800" />
+            <div className="h-[1px] flex-1 bg-[#0D1F3C]" />
             <span
               className="text-[10px] uppercase tracking-[0.3em] font-semibold"
-              style={{ color: "#C9A84C" }}
+              style={{ color: "#7AB3E0" }}
             >
               Filter by Category
             </span>
-            <div className="h-[1px] flex-1 bg-neutral-800" />
+            <div className="h-[1px] flex-1 bg-[#0D1F3C]" />
           </div>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -283,17 +283,17 @@ export default function CoursesPage() {
           {/* Live count */}
           <p className="text-center mt-6 text-xs uppercase tracking-widest text-neutral-600">
             Showing{" "}
-            <span style={{ color: "#C9A84C" }}>{filtered.length}</span>{" "}
+            <span style={{ color: "#7AB3E0" }}>{filtered.length}</span>{" "}
             {filtered.length === 1 ? "course" : "courses"}
           </p>
         </div>
       </section>
 
-      {/* ── STATS ROW — mirrors About page ── */}
+      {/* ── STATS ROW ── */}
       <section className="px-6 pb-14">
         <div
           className="max-w-3xl mx-auto grid grid-cols-3 gap-6 border-y py-8"
-          style={{ borderColor: "#1f1f1f" }}
+          style={{ borderColor: "#0D1F3C" }}
         >
           {[
             { num: `${courseData.courses.length}+`, label: "Courses" },
@@ -303,7 +303,7 @@ export default function CoursesPage() {
             <div key={s.label} className="text-center">
               <p
                 className="text-3xl font-black"
-                style={{ color: "#C9A84C" }}
+                style={{ color: "#7AB3E0" }}
               >
                 {s.num}
               </p>
@@ -340,7 +340,7 @@ export default function CoursesPage() {
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(0deg, #C9A84C 0px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #C9A84C 0px, transparent 1px, transparent 60px)",
+              "repeating-linear-gradient(0deg, #7AB3E0 0px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #7AB3E0 0px, transparent 1px, transparent 60px)",
           }}
         />
         <div className="relative z-10">

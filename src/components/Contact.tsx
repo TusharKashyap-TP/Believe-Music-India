@@ -4,13 +4,13 @@ import Link from "next/link";
 
 function Contact() {
   return (
-    <footer className="relative w-full bg-[#080808] overflow-hidden pt-20 pb-8">
+    <footer className="relative w-full bg-[#04091A] overflow-hidden pt-20 pb-8">
 
-      {/* Top gold divider */}
+      {/* Top blue divider */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px]"
         style={{
-          background: "linear-gradient(to right, transparent, #C9A84C, transparent)",
+          background: "linear-gradient(to right, transparent, #7AB3E0, transparent)",
         }}
       />
 
@@ -19,7 +19,7 @@ function Contact() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(201,168,76,0.05) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(122,179,224,0.05) 0%, transparent 70%)",
         }}
       />
 
@@ -27,7 +27,7 @@ function Contact() {
       <div className="relative z-10 flex flex-col items-center mb-16 px-6 text-center">
         <span
           className="uppercase tracking-[0.35em] text-xs font-semibold mb-3"
-          style={{ color: "#C9A84C" }}
+          style={{ color: "#7AB3E0" }}
         >
           Believe Music India
         </span>
@@ -35,14 +35,16 @@ function Contact() {
           className="text-3xl md:text-4xl font-black mb-3"
           style={{
             fontFamily: "'Georgia', serif",
-            background: "linear-gradient(135deg, #ffffff 30%, #C9A84C 100%)",
+            background: "linear-gradient(135deg, #ffffff 30%, #7AB3E0 100%)",
             WebkitBackgroundClip: "text",
+            backgroundClip: "text",
             WebkitTextFillColor: "transparent",
+            color: "transparent",
           }}
         >
           From Gurukul to Global
         </h2>
-        <div className="w-12 h-[2px] mt-2" style={{ background: "#C9A84C" }} />
+        <div className="w-12 h-[2px] mt-2" style={{ background: "#7AB3E0" }} />
       </div>
 
       {/* Grid links */}
@@ -52,7 +54,7 @@ function Contact() {
         <div>
           <h3
             className="text-sm font-bold uppercase tracking-[0.2em] mb-5"
-            style={{ color: "#C9A84C" }}
+            style={{ color: "#7AB3E0" }}
           >
             Company
           </h3>
@@ -78,7 +80,7 @@ function Contact() {
         <div>
           <h3
             className="text-sm font-bold uppercase tracking-[0.2em] mb-5"
-            style={{ color: "#C9A84C" }}
+            style={{ color: "#7AB3E0" }}
           >
             Quick Links
           </h3>
@@ -105,7 +107,7 @@ function Contact() {
         <div>
           <h3
             className="text-sm font-bold uppercase tracking-[0.2em] mb-5"
-            style={{ color: "#C9A84C" }}
+            style={{ color: "#7AB3E0" }}
           >
             Follow Us
           </h3>
@@ -136,7 +138,7 @@ function Contact() {
         <div>
           <h3
             className="text-sm font-bold uppercase tracking-[0.2em] mb-5"
-            style={{ color: "#C9A84C" }}
+            style={{ color: "#7AB3E0" }}
           >
             Contact Us
           </h3>
@@ -168,12 +170,12 @@ function Contact() {
       <div className="relative z-10 max-w-6xl mx-auto px-8">
         {/* Diamond divider */}
         <div className="flex items-center gap-4 mb-6">
-          <div className="h-[1px] flex-1 bg-neutral-800" />
+          <div className="h-[1px] flex-1 bg-[#0D1F3C]" />
           <div
             className="w-2 h-2 rotate-45 border"
-            style={{ borderColor: "#C9A84C" }}
+            style={{ borderColor: "#7AB3E0" }}
           />
-          <div className="h-[1px] flex-1 bg-neutral-800" />
+          <div className="h-[1px] flex-1 bg-[#0D1F3C]" />
         </div>
 
         <p className="text-center text-neutral-600 text-xs tracking-widest uppercase">
