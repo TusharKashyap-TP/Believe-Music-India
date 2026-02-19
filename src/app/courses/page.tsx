@@ -41,123 +41,125 @@ function FilterPill({
 function CourseCard({ course }: { course: (typeof courseData.courses)[0] }) {
   return (
     <CardContainer className="inter-var">
-      <CardBody
-        className="relative group/card rounded-2xl border p-6 overflow-hidden flex flex-col"
-        style={{
-          background: "linear-gradient(145deg, #070E1F, #05091A)",
-          borderColor: "#0D1F3C",
-          width: "22rem",
-          height: "30rem",
-        }}
-      >
-        {/* Blue top accent */}
+      <CardBody className="relative group/card">
         <div
-          className="absolute top-0 left-8 right-8 h-[1px]"
+          className="rounded-2xl border p-6 overflow-hidden flex flex-col"
           style={{
-            background:
-              "linear-gradient(to right, transparent, #7AB3E0, transparent)",
-          }}
-        />
-
-        {/* Instructor badge */}
-        {course.instructor && (
-          <CardItem translateZ="30" className="mb-3">
-            <span
-              className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] font-semibold"
-              style={{ color: "#7AB3E0" }}
-            >
-              <span
-                className="w-1 h-1 rounded-full"
-                style={{ background: "#7AB3E0" }}
-              />
-              {course.instructor}
-            </span>
-          </CardItem>
-        )}
-
-        {/* Title */}
-        <CardItem
-          translateZ="50"
-          className="text-xl font-black text-white leading-tight mb-2"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
-          {course.title}
-        </CardItem>
-
-        {/* Description — clamped to 2 lines */}
-        <CardItem
-          as="p"
-          translateZ="60"
-          className="text-neutral-500 text-sm leading-relaxed mt-2 mb-4"
-          style={{
-            display: "-webkit-box",
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
+            background: "linear-gradient(145deg, #070E1F, #05091A)",
+            borderColor: "#0D1F3C",
+            width: "22rem",
+            height: "30rem",
           }}
         >
-          {course.description}
-        </CardItem>
+          {/* Blue top accent */}
+          <div
+            className="absolute top-0 left-8 right-8 h-[1px]"
+            style={{
+              background:
+                "linear-gradient(to right, transparent, #7AB3E0, transparent)",
+            }}
+          />
 
-        {/* Image — fixed height */}
-        <CardItem translateZ="100" className="w-full">
-          <div className="relative overflow-hidden rounded-xl">
-            <Image
-              src={course.image}
-              height={600}
-              width={600}
-              className="h-44 w-full object-cover transition-transform duration-700 group-hover/card:scale-105"
-              alt={course.title}
-            />
-            {/* Image overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-            {/* Level badge on image */}
-            {course.level && (
+          {/* Instructor badge */}
+          {course.instructor && (
+            <CardItem translateZ="30" className="mb-3">
               <span
-                className="absolute bottom-3 left-3 text-[9px] uppercase tracking-widest font-bold px-2 py-1 text-white"
-                style={{ background: "#1A3F6F" }}
+                className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] font-semibold"
+                style={{ color: "#7AB3E0" }}
               >
-                {course.level}
+                <span
+                  className="w-1 h-1 rounded-full"
+                  style={{ background: "#7AB3E0" }}
+                />
+                {course.instructor}
+              </span>
+            </CardItem>
+          )}
+
+          {/* Title */}
+          <CardItem
+            translateZ="50"
+            className="text-xl font-black text-white leading-tight mb-2"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
+            {course.title}
+          </CardItem>
+
+          {/* Description — clamped to 2 lines */}
+          <CardItem
+            as="p"
+            translateZ="60"
+            className="text-neutral-500 text-sm leading-relaxed mt-2 mb-4"
+            style={{
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
+          >
+            {course.description}
+          </CardItem>
+
+          {/* Image — fixed height */}
+          <CardItem translateZ="100" className="w-full">
+            <div className="relative overflow-hidden rounded-xl">
+              <Image
+                src={course.image}
+                height={600}
+                width={600}
+                className="h-44 w-full object-cover transition-transform duration-700 group-hover/card:scale-105"
+                alt={course.title}
+              />
+              {/* Image overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+              {/* Level badge on image */}
+              {course.level && (
+                <span
+                  className="absolute bottom-3 left-3 text-[9px] uppercase tracking-widest font-bold px-2 py-1 text-white"
+                  style={{ background: "#1A3F6F" }}
+                >
+                  {course.level}
+                </span>
+              )}
+            </div>
+          </CardItem>
+
+          {/* Meta row — pushed to bottom */}
+          <div
+            className="flex items-center gap-4 mt-auto pt-4 border-t text-[10px] uppercase tracking-widest text-neutral-600"
+            style={{ borderColor: "#0D1F3C" }}
+          >
+            {course.duration && <span>⏱ {course.duration}</span>}
+            {course.lessons && <span>◈ {course.lessons} lessons</span>}
+            {course.price && (
+              <span className="ml-auto font-bold" style={{ color: "#7AB3E0" }}>
+                {course.price}
               </span>
             )}
           </div>
-        </CardItem>
 
-        {/* Meta row — pushed to bottom */}
-        <div
-          className="flex items-center gap-4 mt-auto pt-4 border-t text-[10px] uppercase tracking-widest text-neutral-600"
-          style={{ borderColor: "#0D1F3C" }}
-        >
-          {course.duration && <span>⏱ {course.duration}</span>}
-          {course.lessons && <span>◈ {course.lessons} lessons</span>}
-          {course.price && (
-            <span className="ml-auto font-bold" style={{ color: "#7AB3E0" }}>
-              {course.price}
-            </span>
-          )}
-        </div>
+          {/* Actions */}
+          <div className="flex justify-between items-center mt-4">
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="text-xs font-medium tracking-wide transition-colors duration-200 hover:text-white"
+              style={{ color: "#7AB3E0" }}
+            >
+              Learn more →
+            </CardItem>
 
-        {/* Actions */}
-        <div className="flex justify-between items-center mt-4">
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="text-xs font-medium tracking-wide transition-colors duration-200 hover:text-white"
-            style={{ color: "#7AB3E0" }}
-          >
-            Learn more →
-          </CardItem>
-
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="relative overflow-hidden group/btn px-5 py-2 text-xs font-bold text-white tracking-widest uppercase transition-opacity duration-200 hover:opacity-90"
-            style={{ background: "#1A3F6F" }}
-          >
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-500 group-hover/btn:translate-x-full" />
-            <span className="relative">Enroll Now</span>
-          </CardItem>
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="relative overflow-hidden group/btn px-5 py-2 text-xs font-bold text-white tracking-widest uppercase transition-opacity duration-200 hover:opacity-90"
+              style={{ background: "#1A3F6F" }}
+            >
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-500 group-hover/btn:translate-x-full" />
+              <span className="relative">Enroll Now</span>
+            </CardItem>
+          </div>
         </div>
       </CardBody>
     </CardContainer>
