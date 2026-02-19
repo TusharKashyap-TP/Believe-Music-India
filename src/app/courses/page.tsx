@@ -113,15 +113,7 @@ function CourseCard({ course }: { course: (typeof courseData.courses)[0] }) {
               {/* Image overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-              {/* Level badge on image */}
-              {course.level && (
-                <span
-                  className="absolute bottom-3 left-3 text-[9px] uppercase tracking-widest font-bold px-2 py-1 text-white"
-                  style={{ background: "#1A3F6F" }}
-                >
-                  {course.level}
-                </span>
-              )}
+           
             </div>
           </CardItem>
 
