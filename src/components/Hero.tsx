@@ -31,7 +31,7 @@ function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-20 flex flex-col items-center text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-20 flex flex-col items-center text-center px-6 max-w-4xl mx-auto mt-20">
 
         {/* Eyebrow */}
         <span

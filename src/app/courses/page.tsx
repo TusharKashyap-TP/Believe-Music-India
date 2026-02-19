@@ -7,9 +7,6 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import courseData from "@/data/music.json";
 import Contact from '@/components/Contact';
 
-/* =========================
-   FIXED TYPE (IMPORTANT)
-========================= */
 type Course = {
   id: number;
   title: string;
@@ -19,8 +16,6 @@ type Course = {
   instructor?: string;
   isFeatured?: boolean;
   image: string;
-
-  // optional fields used in UI
   level?: string;
   duration?: string;
   lessons?: number;
@@ -29,7 +24,6 @@ type Course = {
 
 const courses = courseData.courses as Course[];
 
-/* ───────────────────────── */
 function FilterPill({
   label,
   active,
@@ -55,7 +49,6 @@ function FilterPill({
   );
 }
 
-/* ───────────────────────── */
 function CourseCard({ course }: { course: Course }) {
   return (
     <CardContainer className="inter-var">
@@ -89,8 +82,8 @@ function CourseCard({ course }: { course: Course }) {
             {course.description}
           </CardItem>
 
+          {/* IMAGE — only once */}
           <CardItem translateZ="100" className="w-full">
-{/* <<<<<<< HEAD */}
             <div className="relative overflow-hidden rounded-xl">
               <Image
                 src={course.image}
@@ -99,23 +92,10 @@ function CourseCard({ course }: { course: Course }) {
                 className="h-44 w-full object-cover transition-transform duration-700 group-hover/card:scale-105"
                 alt={course.title}
               />
-              {/* Image overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-           
             </div>
-=======
-            <Image
-              src={course.image}
-              height={600}
-              width={600}
-              className="h-44 w-full object-cover rounded-xl"
-              alt={course.title}
-            />
-{/* >>>>>>> 3ef811d (fix TypeScript errors) */}
           </CardItem>
 
-          {/* META */}
           <div className="mt-auto pt-4 border-t border-[#0D1F3C] text-sm flex gap-3 flex-wrap">
             {course.level && <span>🎯 {course.level}</span>}
             {course.duration && <span>⏱ {course.duration}</span>}
@@ -129,9 +109,6 @@ function CourseCard({ course }: { course: Course }) {
   );
 }
 
-/* =========================
-   MAIN PAGE
-========================= */
 export default function CoursesPage() {
   const [activeFilter, setActiveFilter] = useState("All");
 
@@ -159,9 +136,7 @@ export default function CoursesPage() {
       <section className="pt-36 pb-24 px-6 text-center">
         <BackgroundBeams />
         <h1 className="text-6xl font-black mb-6">All Courses</h1>
-        <p className="text-neutral-400">
-          {courses.length} courses available
-        </p>
+        <p className="text-neutral-400">{courses.length} courses available</p>
       </section>
 
       <section className="px-6 pb-10">
