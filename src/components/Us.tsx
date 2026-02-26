@@ -3,7 +3,6 @@ import React from "react";
 import { motion } from "motion/react";
 import { AnimatedTooltip } from "./ui/animated-tooltip";
 import { LampContainer } from "./ui/lamp";
-import { image } from "framer-motion/client";
 
 const people = [
   {
