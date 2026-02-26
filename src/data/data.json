@@ -1,68 +1,64 @@
 {
-    "artist": [
-    
-      {
-        "id": 1,
-  "title": "Apna Bana Le",
-  "slug": "apna-bana-le",
-  "description": "A heartfelt Bollywood song that captures love and longing with rich instrumentation and expressive vocals.",
-  "price": 149.99,
-  "instructor": "Arijit Singh",
-  "isFeatured": true,
-  "image": "/data/indian-singer3.jpg"
-        
-      },
-      {
-        "id": 2,
-        "title": "Not Guilty",
-        "slug": "drumming-mastery",
-        "description": "The track reflects real-life struggles, false blame, loyalty, and inner strength. With powerful Haryanvi lyrics.",
-        "price": 129.99,
-        "instructor": "Dhanda Nyoliwala",
-        "isFeatured": false,
-        "image": "/data/download3.jpg"
-      },
-      {
-        "id": 3,
-        "title": "Adayein Teri ",
-        "slug": "advanced-vocal-techniques",
-        "description": "Adayein Teri set to a shimmering disco rhythm, this hypnotic track weaves a poetic tale of desire, mystery, and unspoken emotion.",
-        "price": 119.99,
-        "instructor": "Neeti Mohan",
-        "isFeatured": true,
-        "image": "/data/download2.jpg" 
-      },
-      { "id": 4,
-        "title": "Shaky",
-        "slug": "guitar-fundamentals",
-        "description": " A bold, danceable vibe that pushes Marathi music into exciting new territory. ",
-        "price": 99.99,
-        "instructor": "Sanju Rathod",
-        "isFeatured": true,
-        "image": "/data/download1.jpg" 
-  
-} ,
-      {
-  "id": 5,
-  "title": "Raataan Lambiyan",
-  "slug": "raataan-lambiyan",
-  "description": "A soulful romantic track blending modern pop with soft Indian melodies, loved for its emotional depth and smooth vocals.",
-  "price": 139.99,
-  "instructor": "Jubin Nautiyal",
-  "isFeatured": true,
-  "image": "/data/indian-singer6.jpg"
-},{
-        "id": 6,
-        "title": "Asal Kolaar ",
-        "slug": "piano-for-beginners",
-        "description": "The track flexes confidence, hustle, and street pride—served with Asal Kolaar’s raw Tamil slang, punchy delivery, and a beat that hits hard from the first bar.",
-        "price": 109.99,
-        "instructor": "Champagini",
-        "isFeatured": true,
-        "image": "/data/download.jpg" 
-      }
-
-
-  
-   ]
+  "artist": [
+    {
+      "id": 1,
+      "title": "Apna Bana Le",
+      "slug": "apna-bana-le",
+      "description": "A heartfelt Bollywood song that captures love and longing with rich instrumentation and expressive vocals.",
+      "price": 149.99,
+      "instructor": "Arijit Singh",
+      "isFeatured": true,
+      "image": "/data/indian-singer3.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Not Guilty",
+      "slug": "drumming-mastery",
+      "description": "The track reflects real-life struggles, false blame, loyalty, and inner strength. With powerful Haryanvi lyrics.",
+      "price": 129.99,
+      "instructor": "Dhanda Nyoliwala",
+      "isFeatured": false,
+      "image": "/data/download3.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Adayein Teri ",
+      "slug": "advanced-vocal-techniques",
+      "description": "Adayein Teri set to a shimmering disco rhythm, this hypnotic track weaves a poetic tale of desire, mystery, and unspoken emotion.",
+      "price": 119.99,
+      "instructor": "Neeti Mohan",
+      "isFeatured": true,
+      "image": "/data/download2.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Shaky",
+      "slug": "guitar-fundamentals",
+      "description": " A bold, danceable vibe that pushes Marathi music into exciting new territory. ",
+      "price": 99.99,
+      "instructor": "Sanju Rathod",
+      "isFeatured": true,
+      "image": "/data/download1.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Raataan Lambiyan",
+      "slug": "raataan-lambiyan",
+      "description": "A soulful romantic track blending modern pop with soft Indian melodies, loved for its emotional depth and smooth vocals.",
+      "price": 139.99,
+      "instructor": "Jubin Nautiyal",
+      "isFeatured": true,
+      "image": "/data/indian-singer6.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Asal Kolaar ",
+      "slug": "piano-for-beginners",
+      "description": "The track flexes confidence, hustle, and street pride—served with Asal Kolaar’s raw Tamil slang, punchy delivery, and a beat that hits hard from the first bar.",
+      "price": 109.99,
+      "instructor": "Champagini",
+      "isFeatured": true,
+      "image": "/data/download.jpg"
+    }
+  ]
 }
